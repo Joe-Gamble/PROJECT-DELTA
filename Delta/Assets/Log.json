@@ -1,0 +1,1294 @@
+{
+    "j_chains": [
+        {
+            "j_nodes": [
+                {
+                    "self": "mixamorig6:Hips",
+                    "parent": "Timmy"
+                },
+                {
+                    "self": "mixamorig6:LeftUpLeg",
+                    "parent": "mixamorig6:Hips"
+                },
+                {
+                    "self": "mixamorig6:LeftLeg",
+                    "parent": "mixamorig6:LeftUpLeg"
+                },
+                {
+                    "self": "mixamorig6:LeftFoot",
+                    "parent": "mixamorig6:LeftLeg"
+                },
+                {
+                    "self": "mixamorig6:LeftToeBase",
+                    "parent": "mixamorig6:LeftFoot"
+                },
+                {
+                    "self": "mixamorig6:LeftToe_End",
+                    "parent": "mixamorig6:LeftToeBase"
+                }
+            ],
+            "j_bones": [
+                {
+                    "length": 0.0819854661822319,
+                    "start_bone": "mixamorig6:Hips",
+                    "end_bone": "mixamorig6:LeftUpLeg"
+                },
+                {
+                    "length": 0.22809076309204102,
+                    "start_bone": "mixamorig6:LeftUpLeg",
+                    "end_bone": "mixamorig6:LeftLeg"
+                },
+                {
+                    "length": 0.24545925855636598,
+                    "start_bone": "mixamorig6:LeftLeg",
+                    "end_bone": "mixamorig6:LeftFoot"
+                },
+                {
+                    "length": 0.19754798710346223,
+                    "start_bone": "mixamorig6:LeftFoot",
+                    "end_bone": "mixamorig6:LeftToeBase"
+                },
+                {
+                    "length": 0.07431753724813461,
+                    "start_bone": "mixamorig6:LeftToeBase",
+                    "end_bone": "mixamorig6:LeftToe_End"
+                }
+            ],
+            "end_leaf_name": "mixamorig6:LeftToe_End",
+            "complete_length": 0.8274009823799133
+        },
+        {
+            "j_nodes": [
+                {
+                    "self": "mixamorig6:Hips",
+                    "parent": "Timmy"
+                },
+                {
+                    "self": "mixamorig6:RightUpLeg",
+                    "parent": "mixamorig6:Hips"
+                },
+                {
+                    "self": "mixamorig6:RightLeg",
+                    "parent": "mixamorig6:RightUpLeg"
+                },
+                {
+                    "self": "mixamorig6:RightFoot",
+                    "parent": "mixamorig6:RightLeg"
+                },
+                {
+                    "self": "mixamorig6:RightToeBase",
+                    "parent": "mixamorig6:RightFoot"
+                },
+                {
+                    "self": "mixamorig6:RightToe_End",
+                    "parent": "mixamorig6:RightToeBase"
+                }
+            ],
+            "j_bones": [
+                {
+                    "length": 0.08135154098272324,
+                    "start_bone": "mixamorig6:Hips",
+                    "end_bone": "mixamorig6:RightUpLeg"
+                },
+                {
+                    "length": 0.2279006987810135,
+                    "start_bone": "mixamorig6:RightUpLeg",
+                    "end_bone": "mixamorig6:RightLeg"
+                },
+                {
+                    "length": 0.2454012930393219,
+                    "start_bone": "mixamorig6:RightLeg",
+                    "end_bone": "mixamorig6:RightFoot"
+                },
+                {
+                    "length": 0.19459620118141175,
+                    "start_bone": "mixamorig6:RightFoot",
+                    "end_bone": "mixamorig6:RightToeBase"
+                },
+                {
+                    "length": 0.07390964031219483,
+                    "start_bone": "mixamorig6:RightToeBase",
+                    "end_bone": "mixamorig6:RightToe_End"
+                }
+            ],
+            "end_leaf_name": "mixamorig6:RightToe_End",
+            "complete_length": 0.8231593370437622
+        },
+        {
+            "j_nodes": [
+                {
+                    "self": "mixamorig6:Hips",
+                    "parent": "Timmy"
+                },
+                {
+                    "self": "mixamorig6:Spine",
+                    "parent": "mixamorig6:Hips"
+                },
+                {
+                    "self": "mixamorig6:Spine1",
+                    "parent": "mixamorig6:Spine"
+                },
+                {
+                    "self": "mixamorig6:Spine2",
+                    "parent": "mixamorig6:Spine1"
+                },
+                {
+                    "self": "mixamorig6:LeftShoulder",
+                    "parent": "mixamorig6:Spine2"
+                },
+                {
+                    "self": "mixamorig6:LeftArm",
+                    "parent": "mixamorig6:LeftShoulder"
+                },
+                {
+                    "self": "mixamorig6:LeftForeArm",
+                    "parent": "mixamorig6:LeftArm"
+                },
+                {
+                    "self": "mixamorig6:LeftHand",
+                    "parent": "mixamorig6:LeftForeArm"
+                },
+                {
+                    "self": "mixamorig6:LeftHandIndex1",
+                    "parent": "mixamorig6:LeftHand"
+                },
+                {
+                    "self": "mixamorig6:LeftHandIndex2",
+                    "parent": "mixamorig6:LeftHandIndex1"
+                },
+                {
+                    "self": "mixamorig6:LeftHandIndex3",
+                    "parent": "mixamorig6:LeftHandIndex2"
+                },
+                {
+                    "self": "mixamorig6:LeftHandIndex4",
+                    "parent": "mixamorig6:LeftHandIndex3"
+                }
+            ],
+            "j_bones": [
+                {
+                    "length": 0.06292925029993057,
+                    "start_bone": "mixamorig6:Hips",
+                    "end_bone": "mixamorig6:Spine"
+                },
+                {
+                    "length": 0.07341741025447846,
+                    "start_bone": "mixamorig6:Spine",
+                    "end_bone": "mixamorig6:Spine1"
+                },
+                {
+                    "length": 0.08390575647354126,
+                    "start_bone": "mixamorig6:Spine1",
+                    "end_bone": "mixamorig6:Spine2"
+                },
+                {
+                    "length": 0.08782695978879929,
+                    "start_bone": "mixamorig6:Spine2",
+                    "end_bone": "mixamorig6:LeftShoulder"
+                },
+                {
+                    "length": 0.06435366719961167,
+                    "start_bone": "mixamorig6:LeftShoulder",
+                    "end_bone": "mixamorig6:LeftArm"
+                },
+                {
+                    "length": 0.2359798103570938,
+                    "start_bone": "mixamorig6:LeftArm",
+                    "end_bone": "mixamorig6:LeftForeArm"
+                },
+                {
+                    "length": 0.21444198489189149,
+                    "start_bone": "mixamorig6:LeftForeArm",
+                    "end_bone": "mixamorig6:LeftHand"
+                },
+                {
+                    "length": 0.09966588765382767,
+                    "start_bone": "mixamorig6:LeftHand",
+                    "end_bone": "mixamorig6:LeftHandIndex1"
+                },
+                {
+                    "length": 0.040334224700927737,
+                    "start_bone": "mixamorig6:LeftHandIndex1",
+                    "end_bone": "mixamorig6:LeftHandIndex2"
+                },
+                {
+                    "length": 0.031142890453338624,
+                    "start_bone": "mixamorig6:LeftHandIndex2",
+                    "end_bone": "mixamorig6:LeftHandIndex3"
+                },
+                {
+                    "length": 0.02751481533050537,
+                    "start_bone": "mixamorig6:LeftHandIndex3",
+                    "end_bone": "mixamorig6:LeftHandIndex4"
+                }
+            ],
+            "end_leaf_name": "mixamorig6:LeftHandIndex4",
+            "complete_length": 1.021512746810913
+        },
+        {
+            "j_nodes": [
+                {
+                    "self": "mixamorig6:Hips",
+                    "parent": "Timmy"
+                },
+                {
+                    "self": "mixamorig6:Spine",
+                    "parent": "mixamorig6:Hips"
+                },
+                {
+                    "self": "mixamorig6:Spine1",
+                    "parent": "mixamorig6:Spine"
+                },
+                {
+                    "self": "mixamorig6:Spine2",
+                    "parent": "mixamorig6:Spine1"
+                },
+                {
+                    "self": "mixamorig6:LeftShoulder",
+                    "parent": "mixamorig6:Spine2"
+                },
+                {
+                    "self": "mixamorig6:LeftArm",
+                    "parent": "mixamorig6:LeftShoulder"
+                },
+                {
+                    "self": "mixamorig6:LeftForeArm",
+                    "parent": "mixamorig6:LeftArm"
+                },
+                {
+                    "self": "mixamorig6:LeftHand",
+                    "parent": "mixamorig6:LeftForeArm"
+                },
+                {
+                    "self": "mixamorig6:LeftHandMiddle1",
+                    "parent": "mixamorig6:LeftHand"
+                },
+                {
+                    "self": "mixamorig6:LeftHandMiddle2",
+                    "parent": "mixamorig6:LeftHandMiddle1"
+                },
+                {
+                    "self": "mixamorig6:LeftHandMiddle3",
+                    "parent": "mixamorig6:LeftHandMiddle2"
+                },
+                {
+                    "self": "mixamorig6:LeftHandMiddle4",
+                    "parent": "mixamorig6:LeftHandMiddle3"
+                }
+            ],
+            "j_bones": [
+                {
+                    "length": 0.06292925029993057,
+                    "start_bone": "mixamorig6:Hips",
+                    "end_bone": "mixamorig6:Spine"
+                },
+                {
+                    "length": 0.07341741025447846,
+                    "start_bone": "mixamorig6:Spine",
+                    "end_bone": "mixamorig6:Spine1"
+                },
+                {
+                    "length": 0.08390575647354126,
+                    "start_bone": "mixamorig6:Spine1",
+                    "end_bone": "mixamorig6:Spine2"
+                },
+                {
+                    "length": 0.08782695978879929,
+                    "start_bone": "mixamorig6:Spine2",
+                    "end_bone": "mixamorig6:LeftShoulder"
+                },
+                {
+                    "length": 0.06435366719961167,
+                    "start_bone": "mixamorig6:LeftShoulder",
+                    "end_bone": "mixamorig6:LeftArm"
+                },
+                {
+                    "length": 0.2359798103570938,
+                    "start_bone": "mixamorig6:LeftArm",
+                    "end_bone": "mixamorig6:LeftForeArm"
+                },
+                {
+                    "length": 0.21444198489189149,
+                    "start_bone": "mixamorig6:LeftForeArm",
+                    "end_bone": "mixamorig6:LeftHand"
+                },
+                {
+                    "length": 0.09829682111740112,
+                    "start_bone": "mixamorig6:LeftHand",
+                    "end_bone": "mixamorig6:LeftHandMiddle1"
+                },
+                {
+                    "length": 0.04740762710571289,
+                    "start_bone": "mixamorig6:LeftHandMiddle1",
+                    "end_bone": "mixamorig6:LeftHandMiddle2"
+                },
+                {
+                    "length": 0.039093017578125,
+                    "start_bone": "mixamorig6:LeftHandMiddle2",
+                    "end_bone": "mixamorig6:LeftHandMiddle3"
+                },
+                {
+                    "length": 0.027825772762298585,
+                    "start_bone": "mixamorig6:LeftHandMiddle3",
+                    "end_bone": "mixamorig6:LeftHandMiddle4"
+                }
+            ],
+            "end_leaf_name": "mixamorig6:LeftHandMiddle4",
+            "complete_length": 1.035478115081787
+        },
+        {
+            "j_nodes": [
+                {
+                    "self": "mixamorig6:Hips",
+                    "parent": "Timmy"
+                },
+                {
+                    "self": "mixamorig6:Spine",
+                    "parent": "mixamorig6:Hips"
+                },
+                {
+                    "self": "mixamorig6:Spine1",
+                    "parent": "mixamorig6:Spine"
+                },
+                {
+                    "self": "mixamorig6:Spine2",
+                    "parent": "mixamorig6:Spine1"
+                },
+                {
+                    "self": "mixamorig6:LeftShoulder",
+                    "parent": "mixamorig6:Spine2"
+                },
+                {
+                    "self": "mixamorig6:LeftArm",
+                    "parent": "mixamorig6:LeftShoulder"
+                },
+                {
+                    "self": "mixamorig6:LeftForeArm",
+                    "parent": "mixamorig6:LeftArm"
+                },
+                {
+                    "self": "mixamorig6:LeftHand",
+                    "parent": "mixamorig6:LeftForeArm"
+                },
+                {
+                    "self": "mixamorig6:LeftHandPinky1",
+                    "parent": "mixamorig6:LeftHand"
+                },
+                {
+                    "self": "mixamorig6:LeftHandPinky2",
+                    "parent": "mixamorig6:LeftHandPinky1"
+                },
+                {
+                    "self": "mixamorig6:LeftHandPinky3",
+                    "parent": "mixamorig6:LeftHandPinky2"
+                },
+                {
+                    "self": "mixamorig6:LeftHandPinky4",
+                    "parent": "mixamorig6:LeftHandPinky3"
+                }
+            ],
+            "j_bones": [
+                {
+                    "length": 0.06292925029993057,
+                    "start_bone": "mixamorig6:Hips",
+                    "end_bone": "mixamorig6:Spine"
+                },
+                {
+                    "length": 0.07341741025447846,
+                    "start_bone": "mixamorig6:Spine",
+                    "end_bone": "mixamorig6:Spine1"
+                },
+                {
+                    "length": 0.08390575647354126,
+                    "start_bone": "mixamorig6:Spine1",
+                    "end_bone": "mixamorig6:Spine2"
+                },
+                {
+                    "length": 0.08782695978879929,
+                    "start_bone": "mixamorig6:Spine2",
+                    "end_bone": "mixamorig6:LeftShoulder"
+                },
+                {
+                    "length": 0.06435366719961167,
+                    "start_bone": "mixamorig6:LeftShoulder",
+                    "end_bone": "mixamorig6:LeftArm"
+                },
+                {
+                    "length": 0.2359798103570938,
+                    "start_bone": "mixamorig6:LeftArm",
+                    "end_bone": "mixamorig6:LeftForeArm"
+                },
+                {
+                    "length": 0.21444198489189149,
+                    "start_bone": "mixamorig6:LeftForeArm",
+                    "end_bone": "mixamorig6:LeftHand"
+                },
+                {
+                    "length": 0.09635521471500397,
+                    "start_bone": "mixamorig6:LeftHand",
+                    "end_bone": "mixamorig6:LeftHandPinky1"
+                },
+                {
+                    "length": 0.032840073108673099,
+                    "start_bone": "mixamorig6:LeftHandPinky1",
+                    "end_bone": "mixamorig6:LeftHandPinky2"
+                },
+                {
+                    "length": 0.0258600115776062,
+                    "start_bone": "mixamorig6:LeftHandPinky2",
+                    "end_bone": "mixamorig6:LeftHandPinky3"
+                },
+                {
+                    "length": 0.019524753093719484,
+                    "start_bone": "mixamorig6:LeftHandPinky3",
+                    "end_bone": "mixamorig6:LeftHandPinky4"
+                }
+            ],
+            "end_leaf_name": "mixamorig6:LeftHandPinky4",
+            "complete_length": 0.9974349141120911
+        },
+        {
+            "j_nodes": [
+                {
+                    "self": "mixamorig6:Hips",
+                    "parent": "Timmy"
+                },
+                {
+                    "self": "mixamorig6:Spine",
+                    "parent": "mixamorig6:Hips"
+                },
+                {
+                    "self": "mixamorig6:Spine1",
+                    "parent": "mixamorig6:Spine"
+                },
+                {
+                    "self": "mixamorig6:Spine2",
+                    "parent": "mixamorig6:Spine1"
+                },
+                {
+                    "self": "mixamorig6:LeftShoulder",
+                    "parent": "mixamorig6:Spine2"
+                },
+                {
+                    "self": "mixamorig6:LeftArm",
+                    "parent": "mixamorig6:LeftShoulder"
+                },
+                {
+                    "self": "mixamorig6:LeftForeArm",
+                    "parent": "mixamorig6:LeftArm"
+                },
+                {
+                    "self": "mixamorig6:LeftHand",
+                    "parent": "mixamorig6:LeftForeArm"
+                },
+                {
+                    "self": "mixamorig6:LeftHandRing1",
+                    "parent": "mixamorig6:LeftHand"
+                },
+                {
+                    "self": "mixamorig6:LeftHandRing2",
+                    "parent": "mixamorig6:LeftHandRing1"
+                },
+                {
+                    "self": "mixamorig6:LeftHandRing3",
+                    "parent": "mixamorig6:LeftHandRing2"
+                },
+                {
+                    "self": "mixamorig6:LeftHandRing4",
+                    "parent": "mixamorig6:LeftHandRing3"
+                }
+            ],
+            "j_bones": [
+                {
+                    "length": 0.06292925029993057,
+                    "start_bone": "mixamorig6:Hips",
+                    "end_bone": "mixamorig6:Spine"
+                },
+                {
+                    "length": 0.07341741025447846,
+                    "start_bone": "mixamorig6:Spine",
+                    "end_bone": "mixamorig6:Spine1"
+                },
+                {
+                    "length": 0.08390575647354126,
+                    "start_bone": "mixamorig6:Spine1",
+                    "end_bone": "mixamorig6:Spine2"
+                },
+                {
+                    "length": 0.08782695978879929,
+                    "start_bone": "mixamorig6:Spine2",
+                    "end_bone": "mixamorig6:LeftShoulder"
+                },
+                {
+                    "length": 0.06435366719961167,
+                    "start_bone": "mixamorig6:LeftShoulder",
+                    "end_bone": "mixamorig6:LeftArm"
+                },
+                {
+                    "length": 0.2359798103570938,
+                    "start_bone": "mixamorig6:LeftArm",
+                    "end_bone": "mixamorig6:LeftForeArm"
+                },
+                {
+                    "length": 0.21444198489189149,
+                    "start_bone": "mixamorig6:LeftForeArm",
+                    "end_bone": "mixamorig6:LeftHand"
+                },
+                {
+                    "length": 0.09364226460456848,
+                    "start_bone": "mixamorig6:LeftHand",
+                    "end_bone": "mixamorig6:LeftHandRing1"
+                },
+                {
+                    "length": 0.04325920343399048,
+                    "start_bone": "mixamorig6:LeftHandRing1",
+                    "end_bone": "mixamorig6:LeftHandRing2"
+                },
+                {
+                    "length": 0.032275497913360599,
+                    "start_bone": "mixamorig6:LeftHandRing2",
+                    "end_bone": "mixamorig6:LeftHandRing3"
+                },
+                {
+                    "length": 0.02382749319076538,
+                    "start_bone": "mixamorig6:LeftHandRing3",
+                    "end_bone": "mixamorig6:LeftHandRing4"
+                }
+            ],
+            "end_leaf_name": "mixamorig6:LeftHandRing4",
+            "complete_length": 1.0158593654632569
+        },
+        {
+            "j_nodes": [
+                {
+                    "self": "mixamorig6:Hips",
+                    "parent": "Timmy"
+                },
+                {
+                    "self": "mixamorig6:Spine",
+                    "parent": "mixamorig6:Hips"
+                },
+                {
+                    "self": "mixamorig6:Spine1",
+                    "parent": "mixamorig6:Spine"
+                },
+                {
+                    "self": "mixamorig6:Spine2",
+                    "parent": "mixamorig6:Spine1"
+                },
+                {
+                    "self": "mixamorig6:LeftShoulder",
+                    "parent": "mixamorig6:Spine2"
+                },
+                {
+                    "self": "mixamorig6:LeftArm",
+                    "parent": "mixamorig6:LeftShoulder"
+                },
+                {
+                    "self": "mixamorig6:LeftForeArm",
+                    "parent": "mixamorig6:LeftArm"
+                },
+                {
+                    "self": "mixamorig6:LeftHand",
+                    "parent": "mixamorig6:LeftForeArm"
+                },
+                {
+                    "self": "mixamorig6:LeftHandThumb1",
+                    "parent": "mixamorig6:LeftHand"
+                },
+                {
+                    "self": "LeftHandThumb2",
+                    "parent": "mixamorig6:LeftHandThumb1"
+                },
+                {
+                    "self": "LeftHandThumb3",
+                    "parent": "LeftHandThumb2"
+                },
+                {
+                    "self": "LeftHandThumb4",
+                    "parent": "LeftHandThumb3"
+                }
+            ],
+            "j_bones": [
+                {
+                    "length": 0.06292925029993057,
+                    "start_bone": "mixamorig6:Hips",
+                    "end_bone": "mixamorig6:Spine"
+                },
+                {
+                    "length": 0.07341741025447846,
+                    "start_bone": "mixamorig6:Spine",
+                    "end_bone": "mixamorig6:Spine1"
+                },
+                {
+                    "length": 0.08390575647354126,
+                    "start_bone": "mixamorig6:Spine1",
+                    "end_bone": "mixamorig6:Spine2"
+                },
+                {
+                    "length": 0.08782695978879929,
+                    "start_bone": "mixamorig6:Spine2",
+                    "end_bone": "mixamorig6:LeftShoulder"
+                },
+                {
+                    "length": 0.06435366719961167,
+                    "start_bone": "mixamorig6:LeftShoulder",
+                    "end_bone": "mixamorig6:LeftArm"
+                },
+                {
+                    "length": 0.2359798103570938,
+                    "start_bone": "mixamorig6:LeftArm",
+                    "end_bone": "mixamorig6:LeftForeArm"
+                },
+                {
+                    "length": 0.21444198489189149,
+                    "start_bone": "mixamorig6:LeftForeArm",
+                    "end_bone": "mixamorig6:LeftHand"
+                },
+                {
+                    "length": 0.03253599628806114,
+                    "start_bone": "mixamorig6:LeftHand",
+                    "end_bone": "mixamorig6:LeftHandThumb1"
+                },
+                {
+                    "length": 0.03804245963692665,
+                    "start_bone": "mixamorig6:LeftHandThumb1",
+                    "end_bone": "LeftHandThumb2"
+                },
+                {
+                    "length": 0.04444752261042595,
+                    "start_bone": "LeftHandThumb2",
+                    "end_bone": "LeftHandThumb3"
+                },
+                {
+                    "length": 0.0318433977663517,
+                    "start_bone": "LeftHandThumb3",
+                    "end_bone": "LeftHandThumb4"
+                }
+            ],
+            "end_leaf_name": "LeftHandThumb4",
+            "complete_length": 0.9697242975234985
+        },
+        {
+            "j_nodes": [
+                {
+                    "self": "mixamorig6:Hips",
+                    "parent": "Timmy"
+                },
+                {
+                    "self": "mixamorig6:Spine",
+                    "parent": "mixamorig6:Hips"
+                },
+                {
+                    "self": "mixamorig6:Spine1",
+                    "parent": "mixamorig6:Spine"
+                },
+                {
+                    "self": "mixamorig6:Spine2",
+                    "parent": "mixamorig6:Spine1"
+                },
+                {
+                    "self": "mixamorig6:Neck",
+                    "parent": "mixamorig6:Spine2"
+                },
+                {
+                    "self": "mixamorig6:Head",
+                    "parent": "mixamorig6:Neck"
+                },
+                {
+                    "self": "mixamorig6:HeadTop_End",
+                    "parent": "mixamorig6:Head"
+                }
+            ],
+            "j_bones": [
+                {
+                    "length": 0.06292925029993057,
+                    "start_bone": "mixamorig6:Hips",
+                    "end_bone": "mixamorig6:Spine"
+                },
+                {
+                    "length": 0.07341741025447846,
+                    "start_bone": "mixamorig6:Spine",
+                    "end_bone": "mixamorig6:Spine1"
+                },
+                {
+                    "length": 0.08390575647354126,
+                    "start_bone": "mixamorig6:Spine1",
+                    "end_bone": "mixamorig6:Spine2"
+                },
+                {
+                    "length": 0.09439386427402497,
+                    "start_bone": "mixamorig6:Spine2",
+                    "end_bone": "mixamorig6:Neck"
+                },
+                {
+                    "length": 0.09708541631698609,
+                    "start_bone": "mixamorig6:Neck",
+                    "end_bone": "mixamorig6:Head"
+                },
+                {
+                    "length": 0.5527652502059937,
+                    "start_bone": "mixamorig6:Head",
+                    "end_bone": "mixamorig6:HeadTop_End"
+                }
+            ],
+            "end_leaf_name": "mixamorig6:HeadTop_End",
+            "complete_length": 0.9644969701766968
+        },
+        {
+            "j_nodes": [
+                {
+                    "self": "mixamorig6:Hips",
+                    "parent": "Timmy"
+                },
+                {
+                    "self": "mixamorig6:Spine",
+                    "parent": "mixamorig6:Hips"
+                },
+                {
+                    "self": "mixamorig6:Spine1",
+                    "parent": "mixamorig6:Spine"
+                },
+                {
+                    "self": "mixamorig6:Spine2",
+                    "parent": "mixamorig6:Spine1"
+                },
+                {
+                    "self": "mixamorig6:RightShoulder",
+                    "parent": "mixamorig6:Spine2"
+                },
+                {
+                    "self": "mixamorig6:RightArm",
+                    "parent": "mixamorig6:RightShoulder"
+                },
+                {
+                    "self": "mixamorig6:RightForeArm",
+                    "parent": "mixamorig6:RightArm"
+                },
+                {
+                    "self": "mixamorig6:RightHand",
+                    "parent": "mixamorig6:RightForeArm"
+                },
+                {
+                    "self": "mixamorig6:RightHandIndex1",
+                    "parent": "mixamorig6:RightHand"
+                },
+                {
+                    "self": "mixamorig6:RightHandIndex2",
+                    "parent": "mixamorig6:RightHandIndex1"
+                },
+                {
+                    "self": "mixamorig6:RightHandIndex3",
+                    "parent": "mixamorig6:RightHandIndex2"
+                },
+                {
+                    "self": "mixamorig6:RightHandIndex4",
+                    "parent": "mixamorig6:RightHandIndex3"
+                }
+            ],
+            "j_bones": [
+                {
+                    "length": 0.06292925029993057,
+                    "start_bone": "mixamorig6:Hips",
+                    "end_bone": "mixamorig6:Spine"
+                },
+                {
+                    "length": 0.07341741025447846,
+                    "start_bone": "mixamorig6:Spine",
+                    "end_bone": "mixamorig6:Spine1"
+                },
+                {
+                    "length": 0.08390575647354126,
+                    "start_bone": "mixamorig6:Spine1",
+                    "end_bone": "mixamorig6:Spine2"
+                },
+                {
+                    "length": 0.08782165497541428,
+                    "start_bone": "mixamorig6:Spine2",
+                    "end_bone": "mixamorig6:RightShoulder"
+                },
+                {
+                    "length": 0.06435366719961167,
+                    "start_bone": "mixamorig6:RightShoulder",
+                    "end_bone": "mixamorig6:RightArm"
+                },
+                {
+                    "length": 0.23596395552158357,
+                    "start_bone": "mixamorig6:RightArm",
+                    "end_bone": "mixamorig6:RightForeArm"
+                },
+                {
+                    "length": 0.21446600556373597,
+                    "start_bone": "mixamorig6:RightForeArm",
+                    "end_bone": "mixamorig6:RightHand"
+                },
+                {
+                    "length": 0.09966970235109329,
+                    "start_bone": "mixamorig6:RightHand",
+                    "end_bone": "mixamorig6:RightHandIndex1"
+                },
+                {
+                    "length": 0.04032532498240471,
+                    "start_bone": "mixamorig6:RightHandIndex1",
+                    "end_bone": "mixamorig6:RightHandIndex2"
+                },
+                {
+                    "length": 0.03114570863544941,
+                    "start_bone": "mixamorig6:RightHandIndex2",
+                    "end_bone": "mixamorig6:RightHandIndex3"
+                },
+                {
+                    "length": 0.027519769966602327,
+                    "start_bone": "mixamorig6:RightHandIndex3",
+                    "end_bone": "mixamorig6:RightHandIndex4"
+                }
+            ],
+            "end_leaf_name": "mixamorig6:RightHandIndex4",
+            "complete_length": 1.0215182304382325
+        },
+        {
+            "j_nodes": [
+                {
+                    "self": "mixamorig6:Hips",
+                    "parent": "Timmy"
+                },
+                {
+                    "self": "mixamorig6:Spine",
+                    "parent": "mixamorig6:Hips"
+                },
+                {
+                    "self": "mixamorig6:Spine1",
+                    "parent": "mixamorig6:Spine"
+                },
+                {
+                    "self": "mixamorig6:Spine2",
+                    "parent": "mixamorig6:Spine1"
+                },
+                {
+                    "self": "mixamorig6:RightShoulder",
+                    "parent": "mixamorig6:Spine2"
+                },
+                {
+                    "self": "mixamorig6:RightArm",
+                    "parent": "mixamorig6:RightShoulder"
+                },
+                {
+                    "self": "mixamorig6:RightForeArm",
+                    "parent": "mixamorig6:RightArm"
+                },
+                {
+                    "self": "mixamorig6:RightHand",
+                    "parent": "mixamorig6:RightForeArm"
+                },
+                {
+                    "self": "mixamorig6:RightHandMiddle1",
+                    "parent": "mixamorig6:RightHand"
+                },
+                {
+                    "self": "mixamorig6:RightHandMiddle2",
+                    "parent": "mixamorig6:RightHandMiddle1"
+                },
+                {
+                    "self": "mixamorig6:RightHandMiddle3",
+                    "parent": "mixamorig6:RightHandMiddle2"
+                },
+                {
+                    "self": "mixamorig6:RightHandMiddle4",
+                    "parent": "mixamorig6:RightHandMiddle3"
+                }
+            ],
+            "j_bones": [
+                {
+                    "length": 0.06292925029993057,
+                    "start_bone": "mixamorig6:Hips",
+                    "end_bone": "mixamorig6:Spine"
+                },
+                {
+                    "length": 0.07341741025447846,
+                    "start_bone": "mixamorig6:Spine",
+                    "end_bone": "mixamorig6:Spine1"
+                },
+                {
+                    "length": 0.08390575647354126,
+                    "start_bone": "mixamorig6:Spine1",
+                    "end_bone": "mixamorig6:Spine2"
+                },
+                {
+                    "length": 0.08782165497541428,
+                    "start_bone": "mixamorig6:Spine2",
+                    "end_bone": "mixamorig6:RightShoulder"
+                },
+                {
+                    "length": 0.06435366719961167,
+                    "start_bone": "mixamorig6:RightShoulder",
+                    "end_bone": "mixamorig6:RightArm"
+                },
+                {
+                    "length": 0.23596395552158357,
+                    "start_bone": "mixamorig6:RightArm",
+                    "end_bone": "mixamorig6:RightForeArm"
+                },
+                {
+                    "length": 0.21446600556373597,
+                    "start_bone": "mixamorig6:RightForeArm",
+                    "end_bone": "mixamorig6:RightHand"
+                },
+                {
+                    "length": 0.09829211980104447,
+                    "start_bone": "mixamorig6:RightHand",
+                    "end_bone": "mixamorig6:RightHandMiddle1"
+                },
+                {
+                    "length": 0.04741602763533592,
+                    "start_bone": "mixamorig6:RightHandMiddle1",
+                    "end_bone": "mixamorig6:RightHandMiddle2"
+                },
+                {
+                    "length": 0.03908584266901016,
+                    "start_bone": "mixamorig6:RightHandMiddle2",
+                    "end_bone": "mixamorig6:RightHandMiddle3"
+                },
+                {
+                    "length": 0.027829835191369058,
+                    "start_bone": "mixamorig6:RightHandMiddle3",
+                    "end_bone": "mixamorig6:RightHandMiddle4"
+                }
+            ],
+            "end_leaf_name": "mixamorig6:RightHandMiddle4",
+            "complete_length": 1.035481572151184
+        },
+        {
+            "j_nodes": [
+                {
+                    "self": "mixamorig6:Hips",
+                    "parent": "Timmy"
+                },
+                {
+                    "self": "mixamorig6:Spine",
+                    "parent": "mixamorig6:Hips"
+                },
+                {
+                    "self": "mixamorig6:Spine1",
+                    "parent": "mixamorig6:Spine"
+                },
+                {
+                    "self": "mixamorig6:Spine2",
+                    "parent": "mixamorig6:Spine1"
+                },
+                {
+                    "self": "mixamorig6:RightShoulder",
+                    "parent": "mixamorig6:Spine2"
+                },
+                {
+                    "self": "mixamorig6:RightArm",
+                    "parent": "mixamorig6:RightShoulder"
+                },
+                {
+                    "self": "mixamorig6:RightForeArm",
+                    "parent": "mixamorig6:RightArm"
+                },
+                {
+                    "self": "mixamorig6:RightHand",
+                    "parent": "mixamorig6:RightForeArm"
+                },
+                {
+                    "self": "mixamorig6:RightHandPinky1",
+                    "parent": "mixamorig6:RightHand"
+                },
+                {
+                    "self": "mixamorig6:RightHandPinky2",
+                    "parent": "mixamorig6:RightHandPinky1"
+                },
+                {
+                    "self": "mixamorig6:RightHandPinky3",
+                    "parent": "mixamorig6:RightHandPinky2"
+                },
+                {
+                    "self": "mixamorig6:RightHandPinky4",
+                    "parent": "mixamorig6:RightHandPinky3"
+                }
+            ],
+            "j_bones": [
+                {
+                    "length": 0.06292925029993057,
+                    "start_bone": "mixamorig6:Hips",
+                    "end_bone": "mixamorig6:Spine"
+                },
+                {
+                    "length": 0.07341741025447846,
+                    "start_bone": "mixamorig6:Spine",
+                    "end_bone": "mixamorig6:Spine1"
+                },
+                {
+                    "length": 0.08390575647354126,
+                    "start_bone": "mixamorig6:Spine1",
+                    "end_bone": "mixamorig6:Spine2"
+                },
+                {
+                    "length": 0.08782165497541428,
+                    "start_bone": "mixamorig6:Spine2",
+                    "end_bone": "mixamorig6:RightShoulder"
+                },
+                {
+                    "length": 0.06435366719961167,
+                    "start_bone": "mixamorig6:RightShoulder",
+                    "end_bone": "mixamorig6:RightArm"
+                },
+                {
+                    "length": 0.23596395552158357,
+                    "start_bone": "mixamorig6:RightArm",
+                    "end_bone": "mixamorig6:RightForeArm"
+                },
+                {
+                    "length": 0.21446600556373597,
+                    "start_bone": "mixamorig6:RightForeArm",
+                    "end_bone": "mixamorig6:RightHand"
+                },
+                {
+                    "length": 0.09635063260793686,
+                    "start_bone": "mixamorig6:RightHand",
+                    "end_bone": "mixamorig6:RightHandPinky1"
+                },
+                {
+                    "length": 0.032848142087459567,
+                    "start_bone": "mixamorig6:RightHandPinky1",
+                    "end_bone": "mixamorig6:RightHandPinky2"
+                },
+                {
+                    "length": 0.025856200605630876,
+                    "start_bone": "mixamorig6:RightHandPinky2",
+                    "end_bone": "mixamorig6:RightHandPinky3"
+                },
+                {
+                    "length": 0.019524145871400834,
+                    "start_bone": "mixamorig6:RightHandPinky3",
+                    "end_bone": "mixamorig6:RightHandPinky4"
+                }
+            ],
+            "end_leaf_name": "mixamorig6:RightHandPinky4",
+            "complete_length": 0.9974368214607239
+        },
+        {
+            "j_nodes": [
+                {
+                    "self": "mixamorig6:Hips",
+                    "parent": "Timmy"
+                },
+                {
+                    "self": "mixamorig6:Spine",
+                    "parent": "mixamorig6:Hips"
+                },
+                {
+                    "self": "mixamorig6:Spine1",
+                    "parent": "mixamorig6:Spine"
+                },
+                {
+                    "self": "mixamorig6:Spine2",
+                    "parent": "mixamorig6:Spine1"
+                },
+                {
+                    "self": "mixamorig6:RightShoulder",
+                    "parent": "mixamorig6:Spine2"
+                },
+                {
+                    "self": "mixamorig6:RightArm",
+                    "parent": "mixamorig6:RightShoulder"
+                },
+                {
+                    "self": "mixamorig6:RightForeArm",
+                    "parent": "mixamorig6:RightArm"
+                },
+                {
+                    "self": "mixamorig6:RightHand",
+                    "parent": "mixamorig6:RightForeArm"
+                },
+                {
+                    "self": "mixamorig6:RightHandRing1",
+                    "parent": "mixamorig6:RightHand"
+                },
+                {
+                    "self": "mixamorig6:RightHandRing2",
+                    "parent": "mixamorig6:RightHandRing1"
+                },
+                {
+                    "self": "mixamorig6:RightHandRing3",
+                    "parent": "mixamorig6:RightHandRing2"
+                },
+                {
+                    "self": "mixamorig6:RightHandRing4",
+                    "parent": "mixamorig6:RightHandRing3"
+                }
+            ],
+            "j_bones": [
+                {
+                    "length": 0.06292925029993057,
+                    "start_bone": "mixamorig6:Hips",
+                    "end_bone": "mixamorig6:Spine"
+                },
+                {
+                    "length": 0.07341741025447846,
+                    "start_bone": "mixamorig6:Spine",
+                    "end_bone": "mixamorig6:Spine1"
+                },
+                {
+                    "length": 0.08390575647354126,
+                    "start_bone": "mixamorig6:Spine1",
+                    "end_bone": "mixamorig6:Spine2"
+                },
+                {
+                    "length": 0.08782165497541428,
+                    "start_bone": "mixamorig6:Spine2",
+                    "end_bone": "mixamorig6:RightShoulder"
+                },
+                {
+                    "length": 0.06435366719961167,
+                    "start_bone": "mixamorig6:RightShoulder",
+                    "end_bone": "mixamorig6:RightArm"
+                },
+                {
+                    "length": 0.23596395552158357,
+                    "start_bone": "mixamorig6:RightArm",
+                    "end_bone": "mixamorig6:RightForeArm"
+                },
+                {
+                    "length": 0.21446600556373597,
+                    "start_bone": "mixamorig6:RightForeArm",
+                    "end_bone": "mixamorig6:RightHand"
+                },
+                {
+                    "length": 0.09364530444145203,
+                    "start_bone": "mixamorig6:RightHand",
+                    "end_bone": "mixamorig6:RightHandRing1"
+                },
+                {
+                    "length": 0.043258894234895709,
+                    "start_bone": "mixamorig6:RightHandRing1",
+                    "end_bone": "mixamorig6:RightHandRing2"
+                },
+                {
+                    "length": 0.03226937726140022,
+                    "start_bone": "mixamorig6:RightHandRing2",
+                    "end_bone": "mixamorig6:RightHandRing3"
+                },
+                {
+                    "length": 0.02383279614150524,
+                    "start_bone": "mixamorig6:RightHandRing3",
+                    "end_bone": "mixamorig6:RightHandRing4"
+                }
+            ],
+            "end_leaf_name": "mixamorig6:RightHandRing4",
+            "complete_length": 1.0158641338348389
+        },
+        {
+            "j_nodes": [
+                {
+                    "self": "mixamorig6:Hips",
+                    "parent": "Timmy"
+                },
+                {
+                    "self": "mixamorig6:Spine",
+                    "parent": "mixamorig6:Hips"
+                },
+                {
+                    "self": "mixamorig6:Spine1",
+                    "parent": "mixamorig6:Spine"
+                },
+                {
+                    "self": "mixamorig6:Spine2",
+                    "parent": "mixamorig6:Spine1"
+                },
+                {
+                    "self": "mixamorig6:RightShoulder",
+                    "parent": "mixamorig6:Spine2"
+                },
+                {
+                    "self": "mixamorig6:RightArm",
+                    "parent": "mixamorig6:RightShoulder"
+                },
+                {
+                    "self": "mixamorig6:RightForeArm",
+                    "parent": "mixamorig6:RightArm"
+                },
+                {
+                    "self": "mixamorig6:RightHand",
+                    "parent": "mixamorig6:RightForeArm"
+                },
+                {
+                    "self": "mixamorig6:RightHandThumb1",
+                    "parent": "mixamorig6:RightHand"
+                },
+                {
+                    "self": "RightHandThumb2",
+                    "parent": "mixamorig6:RightHandThumb1"
+                },
+                {
+                    "self": "RightHandThumb3",
+                    "parent": "RightHandThumb2"
+                },
+                {
+                    "self": "RightHandThumb4",
+                    "parent": "RightHandThumb3"
+                }
+            ],
+            "j_bones": [
+                {
+                    "length": 0.06292925029993057,
+                    "start_bone": "mixamorig6:Hips",
+                    "end_bone": "mixamorig6:Spine"
+                },
+                {
+                    "length": 0.07341741025447846,
+                    "start_bone": "mixamorig6:Spine",
+                    "end_bone": "mixamorig6:Spine1"
+                },
+                {
+                    "length": 0.08390575647354126,
+                    "start_bone": "mixamorig6:Spine1",
+                    "end_bone": "mixamorig6:Spine2"
+                },
+                {
+                    "length": 0.08782165497541428,
+                    "start_bone": "mixamorig6:Spine2",
+                    "end_bone": "mixamorig6:RightShoulder"
+                },
+                {
+                    "length": 0.06435366719961167,
+                    "start_bone": "mixamorig6:RightShoulder",
+                    "end_bone": "mixamorig6:RightArm"
+                },
+                {
+                    "length": 0.23596395552158357,
+                    "start_bone": "mixamorig6:RightArm",
+                    "end_bone": "mixamorig6:RightForeArm"
+                },
+                {
+                    "length": 0.21446600556373597,
+                    "start_bone": "mixamorig6:RightForeArm",
+                    "end_bone": "mixamorig6:RightHand"
+                },
+                {
+                    "length": 0.032539498060941699,
+                    "start_bone": "mixamorig6:RightHand",
+                    "end_bone": "mixamorig6:RightHandThumb1"
+                },
+                {
+                    "length": 0.03803926333785057,
+                    "start_bone": "mixamorig6:RightHandThumb1",
+                    "end_bone": "RightHandThumb2"
+                },
+                {
+                    "length": 0.044447071850299838,
+                    "start_bone": "RightHandThumb2",
+                    "end_bone": "RightHandThumb3"
+                },
+                {
+                    "length": 0.031843818724155429,
+                    "start_bone": "RightHandThumb3",
+                    "end_bone": "RightHandThumb4"
+                }
+            ],
+            "end_leaf_name": "RightHandThumb4",
+            "complete_length": 0.9697273969650269
+        }
+    ]
+}
