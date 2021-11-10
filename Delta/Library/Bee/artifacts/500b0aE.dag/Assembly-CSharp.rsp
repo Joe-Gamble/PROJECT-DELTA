@@ -341,6 +341,7 @@
 "Assets/Player/Scripts/PlayerControls.cs"
 "Assets/Scripts/Controller.cs"
 "Assets/Scripts/Input/InputManager.cs"
+"Assets/Scripts/Items/Factory.cs"
 "Assets/Scripts/Items/GunData.cs"
 "Assets/Scripts/Items/ItemData.cs"
 "Assets/Scripts/Items/Weapons/ItemFunctions.cs"

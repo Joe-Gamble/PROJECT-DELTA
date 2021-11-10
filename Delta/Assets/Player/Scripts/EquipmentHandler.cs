@@ -5,6 +5,7 @@ using UnityEngine;
 public class EquipmentHandler
 {
     //Does this need to default to hands?
+    
     InteractableItem equiped_item = null;
 
     public InteractableItem GetEquiped()
@@ -16,7 +17,6 @@ public class EquipmentHandler
     {
         //Will eventually come from inventory but for now will appear from void
         equiped_item = new_item;
-        Debug.Log(equiped_item.data.item_name);
     }
 
     public void UnequipItem()

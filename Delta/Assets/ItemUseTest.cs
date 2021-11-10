@@ -24,8 +24,11 @@ public class ItemUseTest : MonoBehaviour
         {
             if(inputManager.Interact())
             {
-                InteractableItem item = g_Item.GetComponent<InteractableItem>();
-                equipmentHandler.EquipItem(item);
+                SMG weap = Factory.WeaponFactory.GetWeapon<SMG>("SMGtest") as SMG;
+                if(weap != null)
+                {
+                    Debug.Log( weap.gun_data.damage);
+                }
             }
             if(equipmentHandler.GetEquiped() != null)
             {

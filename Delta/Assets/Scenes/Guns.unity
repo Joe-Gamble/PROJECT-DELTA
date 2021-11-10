@@ -636,7 +636,6 @@ GameObject:
   - component: {fileID: 1666630306}
   - component: {fileID: 1666630305}
   - component: {fileID: 1666630304}
-  - component: {fileID: 1666630303}
   m_Layer: 0
   m_Name: SMG TEST
   m_TagString: Untagged
@@ -644,19 +643,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1666630303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666630302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6ea971876ee8fe45b247f78df75fa7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 7da49bb9ebec384449ad025da7fcd596, type: 2}
 --- !u!65 &1666630304
 BoxCollider:
   m_ObjectHideFlags: 0

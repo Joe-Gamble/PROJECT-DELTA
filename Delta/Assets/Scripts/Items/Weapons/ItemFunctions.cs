@@ -57,12 +57,13 @@ public interface ISwingable
 
 #endregion
 
-public class Item : MonoBehaviour
+public abstract class Item
 {
-    public ItemData data;
+    public abstract string data_path {get;}
+    public abstract ItemData data {get;}
 }
 
-public class PhyscialItem : Item, IItemDropable, IItemCollectable
+public abstract class PhyscialItem : Item, IItemDropable, IItemCollectable
 {
     public GameObject model;
 

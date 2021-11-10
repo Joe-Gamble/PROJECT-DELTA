@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#region Enums
+
 public enum ItemTypes
 {
     UNDEFINED = -1,
@@ -25,6 +27,8 @@ public enum GunTypes
     BURST,
     HYBRID,
 }
+     
+#endregion
 
 public class ItemData : ScriptableObject 
 {
@@ -32,6 +36,8 @@ public class ItemData : ScriptableObject
     public int id = 0;
     public string item_name = "";
     public string desc = "";
+
+    public ItemTypes type = ItemTypes.UNDEFINED;
 
     public Sprite item_preview;
 
