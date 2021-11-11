@@ -1,7 +1,10 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
+using System.Reflection;
 
 public class ItemUseTest : MonoBehaviour
 {
@@ -24,10 +27,14 @@ public class ItemUseTest : MonoBehaviour
         {
             if(inputManager.Interact())
             {
-                SMG weap = Factory.WeaponFactory.GetWeapon<SMG>("SMGtest") as SMG;
-                if(weap != null)
+                SMG weap = Factory.Manager.GetItem<SMG>("SMG");
+
+                Type[] types = {typeof(Gun)}; 
+                Type[] interfaces = {typeof(IReloadable), typeof(IShootable)};
+
+                foreach(Weapon name in Factory.Manager.GetCollection<Weapon>(types,interfaces))
                 {
-                    Debug.Log( weap.gun_data.damage);
+                    Debug.Log(name.GetType().Name);
                 }
             }
             if(equipmentHandler.GetEquiped() != null)
