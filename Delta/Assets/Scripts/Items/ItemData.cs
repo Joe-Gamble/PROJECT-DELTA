@@ -27,13 +27,16 @@ public enum GunTypes
     BURST,
     HYBRID,
 }
-     
+
 #endregion
 
 public class ItemData : ScriptableObject 
 {
-    [Header("Item Details")]
+    [Header("Dev Details")]
     public int id = 0;
+    private string lookup_name = "Undefined";
+
+    [Header("Dev Details")]
     public string item_name = "";
     public string desc = "";
 
@@ -42,12 +45,12 @@ public class ItemData : ScriptableObject
     public Sprite item_preview;
 
     [Header("Item GFX")]
-    public Mesh model;
+    public GameObject prefab;
 }
 
 public abstract class WeaponData : ItemData 
 {
     [Header("Weapon Values")]
     public int damage;
-    public float rateOfFire;
+    
 }

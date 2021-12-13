@@ -6,9 +6,25 @@ namespace Weapons
     {
         public abstract class Automatic : Gun
         {
+            private bool isFiring = false;
+
             private void Start() {
             
                 m_GunType = GunTypes.AUTOMATIC;
+            }
+
+            public override void Shoot()
+            {
+                float current_time = Time.time;
+                while(isFiring)
+                {
+                    if(Time.time - current_time >= 60000.0f / gun_data.fire_rate)
+                    {
+                        current_time = Time.time;
+                        Debug.Log("Fire");
+                    }
+                    
+                }
             }
         }
 

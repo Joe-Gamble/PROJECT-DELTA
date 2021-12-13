@@ -14,16 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   item_name: SMG
-  desc: SMG Desc Debug
+  desc: A test SMG. High Rate of Fire, low damage, perfect for close to medium engagements.
   type: 0
   item_preview: {fileID: 0}
-  model: {fileID: 0}
-  damage: 1
-  rateOfFire: 0
-  fire_rate: 0
-  reload_speed: 0
-  clip_size: 0
-  reserve_mags: 0
+  prefab: {fileID: 919132149155446097, guid: d1b7f707b0c89a54581eadf1eb10a447, type: 3}
+  damage: 10
+  fire_rate: 360
+  reload_speed: 2.4
+  clip_size: 30
+  reserve_mags: 5
   start_up_rate:
     serializedVersion: 2
     m_Curve:

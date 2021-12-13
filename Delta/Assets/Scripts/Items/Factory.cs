@@ -72,7 +72,7 @@ namespace Factory
             }
         }
 
-        public static List<Type> GetAllItemsOfType(Type _type)
+        private static List<Type> GetAllItemsOfType(Type _type)
         {
             List<Type> items = new List<Type>();
 

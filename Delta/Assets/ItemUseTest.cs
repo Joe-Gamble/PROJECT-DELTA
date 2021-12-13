@@ -8,10 +8,9 @@ using System.Reflection;
 
 public class ItemUseTest : MonoBehaviour
 {
-    public GameObject g_Item;
     public EquipmentHandler equipmentHandler = new EquipmentHandler();
-
-    public bool toggle;
+    public GameObject spawnPrefab;
+    public Transform spawnPos;
 
     InputManager inputManager;
     // Start is called before the first frame update
@@ -27,15 +26,26 @@ public class ItemUseTest : MonoBehaviour
         {
             if(inputManager.Interact())
             {
+                //GET SPECIFIC TYPE FROM NAME
                 SMG weap = Factory.Manager.GetItem<SMG>("SMG");
 
-                Type[] types = {typeof(Gun)}; 
+                SpawnItem(spawnPos, weap);
+
+                /*
+                //GET SPECIFIC TYPE FROM NAME
+                SMG weap = Factory.Manager.GetItem<SMG>("SMG");
+
+                //FIND ALL TYPES OF A TYPE
+                List<Gun> AllGuns = Factory.Manager.GetAllItemsOfType<Gun>();
+
+                //FIND TYPES WITH SPECIFIC BEHAVIOUS
+                Type[] types = {typeof(Gun), (typeof(Melee))}; 
                 Type[] interfaces = {typeof(IReloadable), typeof(IShootable)};
 
-                foreach(Weapon name in Factory.Manager.GetCollection<Weapon>(types,interfaces))
-                {
-                    Debug.Log(name.GetType().Name);
-                }
+                //USING DEFINED COLLECTIONS FOR TYPES AND BEHAVIOURS; RETURNS A LIST OF ALL TYPES FOUND
+                List<Weapon> FoundWeapons = Factory.Manager.GetCollection<Weapon>(types,interfaces);
+                */
+
             }
             if(equipmentHandler.GetEquiped() != null)
             {
@@ -58,5 +68,17 @@ public class ItemUseTest : MonoBehaviour
                 }
             }
         }
+    }
+
+    void SpawnItem(Transform pos, PhysicalItem item)
+    {
+        if(item.data.type != ItemTypes.UNDEFINED)
+        {
+            GameObject obj = GameObject.Instantiate(spawnPrefab, pos.position, pos.rotation);
+
+            ItemRef item_ref = obj.GetComponent<ItemRef>();
+            item_ref.Spawn(obj, item);
+        }
+       
     }
 }

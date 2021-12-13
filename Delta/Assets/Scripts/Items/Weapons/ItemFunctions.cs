@@ -8,6 +8,11 @@ public interface IItemUseable
     void UseSecond();
 }
 
+public interface IItemCancelable
+{
+    void Cancel();
+}
+
 public interface IItemCollectable
 {
     void Collect();
@@ -63,16 +68,8 @@ public abstract class Item
     public abstract ItemData data {get;}
 }
 
-public abstract class PhyscialItem : Item, IItemDropable, IItemCollectable
+public abstract class PhysicalItem : Item, IItemDropable, IItemCollectable
 {
-    public GameObject model;
-
-    private Rigidbody rb;
-
-    private void Start() {
-        rb = model.AddComponent<Rigidbody>();
-    }
-
     public virtual void Drop()
     {
 
@@ -84,7 +81,7 @@ public abstract class PhyscialItem : Item, IItemDropable, IItemCollectable
     }
 }
 
-public abstract class InteractableItem : PhyscialItem, IItemUseable
+public abstract class InteractableItem : PhysicalItem, IItemUseable
 {
     public abstract void Use();
 
