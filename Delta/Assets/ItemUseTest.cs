@@ -31,20 +31,28 @@ public class ItemUseTest : MonoBehaviour
 
                 SpawnItem(spawnPos, weap);
 
-                /*
+                
                 //GET SPECIFIC TYPE FROM NAME
-                SMG weap = Factory.Manager.GetItem<SMG>("SMG");
+                SMG smg = Factory.Manager.GetItem<SMG>("SMG");
 
                 //FIND ALL TYPES OF A TYPE
                 List<Gun> AllGuns = Factory.Manager.GetAllItemsOfType<Gun>();
 
                 //FIND TYPES WITH SPECIFIC BEHAVIOUS
                 Type[] types = {typeof(Gun), (typeof(Melee))}; 
-                Type[] interfaces = {typeof(IReloadable), typeof(IShootable)};
+                Type[] interfaces = {typeof(IReloadable), typeof(IShootable), typeof(ISwingable)};
 
                 //USING DEFINED COLLECTIONS FOR TYPES AND BEHAVIOURS; RETURNS A LIST OF ALL TYPES FOUND
-                List<Weapon> FoundWeapons = Factory.Manager.GetCollection<Weapon>(types,interfaces);
-                */
+                List<Weapon> FoundWeapons = Factory.Manager.GetSpecificCollection<Weapon>(types,interfaces);
+
+                //GET GENERIC TYPE FROM NAME
+                InteractableItem my_gun = Factory.Manager.GetItem<SMG>("SMG");
+
+                if(my_gun is IReloadable)
+                {
+                    //reload the gun
+                }
+
 
             }
             if(equipmentHandler.GetEquiped() != null)
@@ -52,19 +60,11 @@ public class ItemUseTest : MonoBehaviour
                 if(inputManager.OnLeftClickDown())
                 {
                     equipmentHandler.GetEquiped().Use();
-                    //Debug.Log("Left Click");
                 }
 
                 if(inputManager.OnRightClickDown())
                 {
                     equipmentHandler.GetEquiped().UseSecond();
-                    Debug.Log("Right Click Down");
-                }
-
-                if(inputManager.OnRightClickUp())
-                {
-                    //weapon.UseSecond();
-                    Debug.Log("Right Click Up");
                 }
             }
         }

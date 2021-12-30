@@ -15,8 +15,6 @@ namespace Factory
     {
         public static Dictionary<string, Type> InitaliseFactoryInfo(Type factory_type)
         {
-            //UnityEngine.Debug.Log("Initalising Items of Type: " + factory_type.ToString());
-
             var factoryTypes = Assembly.GetAssembly(factory_type).GetTypes().Where(
                 myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(factory_type));
 
@@ -47,7 +45,7 @@ namespace Factory
             {
                 return Weapons.GetItem<T>(itemName);
             }
-            throw new Exception("Object of type  " + typeof(T).Name + "is not an Item that is produced by the Factory. ");
+            throw new Exception("Object of type " + typeof(T).Name + " is not an Item that is produced by the Factory. ");
         }
 
         public static List<T> GetAllItemsOfType<T>()
@@ -72,6 +70,75 @@ namespace Factory
             }
         }
 
+            ///<summary> "Returns a list of names from given type filter" </summary>
+        public static IEnumerable<string> GetItemNames<T>()
+        {
+            Type itemType = typeof(T);
+
+            if(itemType == typeof(Weapon))
+            {
+                return Weapons.typesByName.Keys;
+            }
+            throw new Exception("Type: " + typeof(T).Name + " is not supported by factories");
+        }
+
+            ///<summary> Returns a list of Type T where each instance is a subclass of at least one of the given <paramref name="types"/>.</summary>
+            ///<param name="types"> Specified subtypes of T </param>
+        public static List<T> GetSpecificCollection<T>(Type[] types)
+        {
+            List<T> found_types = new List<T>();
+
+            foreach(Type type in types)
+            {
+                if(type.IsSubclassOf(typeof(T)) || type == typeof(T))
+                {
+                    foreach(T tp in GetAllItemsOfType<T>())
+                    {
+                        found_types.Add(tp);
+                    }
+                }
+            }
+            return found_types;
+        }
+            
+            ///<summary> Returns a list of Type T where each instance is a subclass of at least one of the given <paramref name="types"/> and at least one of the given <paramref name="interfaces"/>.</summary>
+            ///<param name="types"> Specified subtypes of T </param>
+            ///<param name="interfaces"> Specified interfaces of T </param>
+        public static List<T> GetSpecificCollection<T>(Type[] types, Type[] interfaces)
+        {
+            List<T> collection = new List<T>();
+            List<T> found_types = new List<T>();
+
+            foreach(Type type in types)
+            {
+                foreach(Type tp in GetAllItemsOfType(type))
+                {
+                    if(tp.IsSubclassOf(typeof(T)) || type == typeof(T))
+                    {
+                        T t = (T)Activator.CreateInstance(tp);
+                        if(!found_types.Contains(t))
+                        {
+                            found_types.Add((T)Activator.CreateInstance(tp));
+                        }
+                    }
+                }
+            }
+
+            foreach(T type in found_types)
+            {
+                foreach(Type itf in interfaces)
+                {
+                    Type tp = type.GetType();
+                    if(tp.GetInterfaces().Contains(itf))
+                    {
+                        collection.Add(type);
+                        break;
+                    }
+                }
+            }
+            return collection;
+        }
+    
         private static List<Type> GetAllItemsOfType(Type _type)
         {
             List<Type> items = new List<Type>();
@@ -91,51 +158,6 @@ namespace Factory
             {
                 throw new Exception("Could not find a factory that supports Type of" + _type.Name);
             }
-        }
-
-        ///<summary> "Returns a list of names from given type filter" </summary>
-        public static IEnumerable<string> GetItemNames<T>()
-        {
-            Type itemType = typeof(T);
-
-            if(itemType == typeof(Weapon))
-            {
-                return Weapons.typesByName.Keys;
-            }
-            throw new Exception("Type: " + typeof(T).Name + " is not supported by factories");
-        }
-
-        public static List<T> GetCollection<T>(Type[] types, Type[] interfaces)
-        {
-            List<T> collection = new List<T>();
-            List<T> found_types = new List<T>();
-
-            foreach(Type type in types)
-            {
-                if(type.IsSubclassOf(typeof(T)) || type == typeof(T))
-                {
-                    foreach(T tp in GetAllItemsOfType<T>())
-                    {
-                        found_types.Add(tp);
-                    }
-                }
-            }
-
-            foreach(T type in found_types.ToList())
-            {
-                foreach(Type itf in interfaces)
-                {
-                    Type tp = type.GetType();
-                    if(tp.GetInterfaces().Contains(itf))
-                    {
-                        continue;
-                    }
-                    else found_types.Remove(type);
-                }
-            }
-
-            collection = found_types;
-            return collection;
         }
     }
 

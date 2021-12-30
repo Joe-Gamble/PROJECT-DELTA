@@ -87,3 +87,7 @@ public abstract class InteractableItem : PhysicalItem, IItemUseable
 
     public abstract void UseSecond();
 }
+
+
+
+
