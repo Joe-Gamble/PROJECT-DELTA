@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using UnityEngine;
 
 namespace Factory
 {
@@ -34,7 +35,83 @@ namespace Factory
         }
     }
 
-    
+    public static class Spawner
+    {
+        //Thinking about Spawn functionality, maybe I need methods lateron to support bounds? For mob spawners, loot drops, etc
+
+        /// <summary>
+        /// Spawns a factory Item at a location
+        /// </summary>
+        /// <param name="pos"> The position where it will be spawn </param>
+        /// <param name="item"> The ItemData of the object being spawned </param>
+        /// <returns> The Gameobject spawned </returns>
+        public static GameObject Spawn(Transform pos, PhysicalItem item)
+        {
+            if(item.data.type != ItemTypes.UNDEFINED)
+            {
+                GameObject obj = GameObject.Instantiate(item.data.prefab, pos.position, pos.rotation);
+
+                obj.name = item.data.name;
+                ItemRef ir = obj.AddComponent<ItemRef>();
+                ir.Init(obj, item);
+
+                return obj;
+            }
+            throw new Exception("Item Undefined, Could not Spawn!");
+        }
+
+         /// <summary>
+        /// Spawns a factory Item at location <paramref name="pos"/> with data from <paramref name="item"/>. 
+        /// </summary>
+        /// <param name="pos"> The position where it will be spawn </param>
+        /// <param name="item"> The ItemData of the object being spawned </param>
+        /// <param name="parent"> Determines if the item will be rooted to transform its spawned on </param>
+        /// <param name="isStatic"> Does the item spawn with physics </param>
+        /// <returns> The Gameobject spawned </returns>
+        public static GameObject Spawn(Transform pos, PhysicalItem item, bool parent, bool isStatic)
+        {
+            if(item.data.type != ItemTypes.UNDEFINED)
+            {
+                GameObject obj;
+
+                if(parent)
+                {
+                    obj = GameObject.Instantiate(item.data.prefab, pos);
+                }
+                else 
+                {
+                    obj = GameObject.Instantiate(item.data.prefab, pos.position, pos.rotation);
+                }
+
+                if(!isStatic)
+                {
+                    obj.AddComponent<Rigidbody>();
+                }
+
+                MeshCollider[] mcs = obj.GetComponentsInChildren<MeshCollider>();
+
+                foreach(MeshCollider mc in mcs)
+                {
+                    if(isStatic)
+                    {
+                        mc.enabled = false;
+                    }
+                    else
+                    {
+                        mc.convex = true;
+                    }
+                }
+
+                obj.name = item.data.name;
+                ItemRef ir = obj.AddComponent<ItemRef>();
+                ir.Init(obj, item);
+
+                return obj;
+            }
+            throw new Exception("Item Undefined, Could not Spawn!");
+        }
+    }
+
     public static class Manager
     {
         public static T GetItem<T>(string itemName)

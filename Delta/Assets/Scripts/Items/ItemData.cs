@@ -34,7 +34,7 @@ public class ItemData : ScriptableObject
 {
     [Header("Dev Details")]
     public int id = 0;
-    private string lookup_name = "Undefined";
+    //private string lookup_name = "Undefined";
 
     [Header("Dev Details")]
     public string item_name = "";

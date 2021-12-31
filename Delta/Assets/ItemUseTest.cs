@@ -17,6 +17,9 @@ public class ItemUseTest : MonoBehaviour
     void Start()
     {
         inputManager = InputManager.Instance;
+
+        SMG weap = Factory.Manager.GetItem<SMG>("SMG");
+        Factory.Spawner.Spawn(spawnPos, weap, false, true);
     }
 
     // Update is called once per frame
@@ -26,11 +29,6 @@ public class ItemUseTest : MonoBehaviour
         {
             if(inputManager.Interact())
             {
-                //GET SPECIFIC TYPE FROM NAME
-                SMG weap = Factory.Manager.GetItem<SMG>("SMG");
-
-                SpawnItem(spawnPos, weap);
-
                 
                 //GET SPECIFIC TYPE FROM NAME
                 SMG smg = Factory.Manager.GetItem<SMG>("SMG");
@@ -68,17 +66,5 @@ public class ItemUseTest : MonoBehaviour
                 }
             }
         }
-    }
-
-    void SpawnItem(Transform pos, PhysicalItem item)
-    {
-        if(item.data.type != ItemTypes.UNDEFINED)
-        {
-            GameObject obj = GameObject.Instantiate(spawnPrefab, pos.position, pos.rotation);
-
-            ItemRef item_ref = obj.GetComponent<ItemRef>();
-            item_ref.Spawn(obj, item);
-        }
-       
     }
 }
