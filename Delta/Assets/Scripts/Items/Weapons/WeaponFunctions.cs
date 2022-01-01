@@ -1,8 +1,54 @@
 using UnityEngine;
 
+namespace Weapons
+{
+    namespace Guns
+    {
+        public abstract class Automatic : Gun
+        {
+            private bool isFiring = false;
+
+            private void Start() {
+            
+                m_GunType = GunTypes.AUTOMATIC;
+            }
+
+            public override void Shoot()
+            {
+                float current_time = Time.time;
+                while(isFiring)
+                {
+                    if(Time.time - current_time >= 60000.0f / gun_data.fire_rate)
+                    {
+                        current_time = Time.time;
+                        Debug.Log("Fire");
+                    }
+                    
+                }
+            }
+        }
+
+        public abstract class SingleShot : Gun
+        {
+            private void Start() {
+            
+                m_GunType = GunTypes.SINGLESHOT;
+            }
+        }
+
+        public abstract class Hybrid : Gun
+        {
+            private void Start() {
+                
+                m_GunType = GunTypes.HYBRID;
+            }
+        }
+    }
+}
+
 public abstract class Weapon : InteractableItem, IWeaponInspectable
 {
-    protected WeaponTypes m_WeaponType {get; set;}
+    public abstract WeaponTypes WeaponType {get;}
 
     public void Inspect()
     {
@@ -12,27 +58,19 @@ public abstract class Weapon : InteractableItem, IWeaponInspectable
 
 public abstract class Gun : Weapon, IShootable
 {
+    public override WeaponTypes WeaponType => WeaponTypes.GUN;
+    public override ItemData data => gun_data as ItemData;
+
+    public abstract GunData gun_data {get; }
+
     protected GunTypes m_GunType {get; set;}
-    protected GunData m_GD {get; set;}
 
     protected int ammo_in_clip;
     protected int ammo_in_reserves;
 
     private void Start() {
-        m_GD = (GunData)data;
-        m_WeaponType = WeaponTypes.GUN;
-        ammo_in_clip = m_GD.clip_size;
-        ammo_in_reserves = m_GD.reserve_mags * ammo_in_clip;
-    }
-
-    public virtual void Shoot(){}
-}
-
-public abstract class Automatic : Gun
-{
-    private void Start() {
-        
-        m_GunType = GunTypes.AUTOMATIC;
+        //ammo_in_clip = data.clip_size;
+        //ammo_in_reserves = data.reserve_mags * ammo_in_clip;
     }
 
     public override void Use()
@@ -40,12 +78,22 @@ public abstract class Automatic : Gun
         Shoot();
     }
 
-    public override void Shoot()
-    {
-        
+    public virtual void Shoot(){ throw new System.NotImplementedException(); }
+}
+
+public abstract class Melee : Weapon, ISwingable
+{
+    public override WeaponTypes WeaponType => WeaponTypes.MELEE;
+
+    private void Start() {
+       
     }
 
-    private void Update() {
-        
+    public override void Use()
+    {
+        Swing();
     }
+
+    public virtual void Swing() { throw new System.NotImplementedException(); }
 }
+

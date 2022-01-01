@@ -8,6 +8,11 @@ public interface IItemUseable
     void UseSecond();
 }
 
+public interface IItemCancelable
+{
+    void Cancel();
+}
+
 public interface IItemCollectable
 {
     void Collect();
@@ -57,21 +62,14 @@ public interface ISwingable
 
 #endregion
 
-public class Item : MonoBehaviour
+public abstract class Item
 {
-    public ItemData data;
+    public abstract string data_path {get;}
+    public abstract ItemData data {get;}
 }
 
-public class PhyscialItem : Item, IItemDropable, IItemCollectable
+public abstract class PhysicalItem : Item, IItemDropable, IItemCollectable
 {
-    public GameObject model;
-
-    private Rigidbody rb;
-
-    private void Start() {
-        rb = model.AddComponent<Rigidbody>();
-    }
-
     public virtual void Drop()
     {
 
@@ -83,9 +81,13 @@ public class PhyscialItem : Item, IItemDropable, IItemCollectable
     }
 }
 
-public abstract class InteractableItem : PhyscialItem, IItemUseable
+public abstract class InteractableItem : PhysicalItem, IItemUseable
 {
     public abstract void Use();
 
     public abstract void UseSecond();
 }
+
+
+
+

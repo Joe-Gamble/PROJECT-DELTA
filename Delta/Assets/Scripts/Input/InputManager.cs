@@ -56,6 +56,10 @@ public class InputManager : MonoBehaviour
         return playerControls.Player.Sprint.triggered;
     }
 
+    public bool Shift(){
+        return playerControls.Player.Sprint.inProgress;
+    }
+
      ///<summary> Returns the current state of the left mouse button </summary>
     public bool OnLeftClick(){
         return Mouse.current.leftButton.isPressed;

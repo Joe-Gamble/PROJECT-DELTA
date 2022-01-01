@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+#region Enums
+
 public enum ItemTypes
 {
     UNDEFINED = -1,
@@ -26,22 +28,29 @@ public enum GunTypes
     HYBRID,
 }
 
+#endregion
+
 public class ItemData : ScriptableObject 
 {
-    [Header("Item Details")]
+    [Header("Dev Details")]
     public int id = 0;
+    //private string lookup_name = "Undefined";
+
+    [Header("Dev Details")]
     public string item_name = "";
     public string desc = "";
+
+    public ItemTypes type = ItemTypes.UNDEFINED;
 
     public Sprite item_preview;
 
     [Header("Item GFX")]
-    public Mesh model;
+    public GameObject prefab;
 }
 
 public abstract class WeaponData : ItemData 
 {
     [Header("Weapon Values")]
     public int damage;
-    public float rateOfFire;
+    
 }
