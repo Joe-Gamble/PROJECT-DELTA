@@ -4,13 +4,13 @@ using Cinemachine;
 
 public class PlayerCamManager : MonoBehaviour
 {
-    private enum CamStates
+    public enum CamStates
     {
         FIRST_PERSON, THIRD_PERSON
     };
 
-    InputManager inputManager;
-    CamStates cam_state;
+    private InputManager inputManager;
+    private CamStates cam_state = CamStates.FIRST_PERSON;
 
     public GameObject player;
     private float xRotation = 0;
@@ -39,6 +39,7 @@ public class PlayerCamManager : MonoBehaviour
     {
         inputManager = InputManager.Instance;
         SetCamToFP();
+        player_cam.cullingMask &= ~(1 << 6);
     }
 
 
@@ -48,8 +49,6 @@ public class PlayerCamManager : MonoBehaviour
         TP_Cam.m_Priority = 1;
         FP_Cam.m_Priority = 0;
         current_cam = TP_Cam.gameObject;
-
-        //RotateTPCam();
     }
 
     void SetCamToFP()
@@ -76,36 +75,25 @@ public class PlayerCamManager : MonoBehaviour
         }
     }
 
-    void RotateTPCam()
-    {
-        Transform cam_transform = current_cam.transform;
-        Quaternion angle = Quaternion.FromToRotation(cam_transform.forward, player.transform.forward);
-        //Debug.Log(angle.eulerAngles);
-        //TP_Cam.m_XAxis.Value = 0;
-    }
-
-    private float AngleDir (Vector3 fwd, Vector3 targetDir, Vector3 up) {
-         Vector3 perp = Vector3.Cross(fwd, targetDir);
-         float dir = Vector3.Dot(perp, up);
-             
-         if (dir > 0) {
-             return 1;
-         } else if (dir < 0) {
-             return -1;
-         } else {
-             return 0;
-         }
-      }
-
     public GameObject GetCurrentCam()
     {
         return current_cam;
     }
 
+    public CamStates GetCamState()
+    {
+        return cam_state;
+    }
+
+    public Camera GetRawCam()
+    {
+        return player_cam;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if(inputManager.SprintDown()){
+        if(inputManager.Interact()){
             if(cam_state == CamStates.FIRST_PERSON){
                 SetCamToTP();
             }
@@ -118,17 +106,18 @@ public class PlayerCamManager : MonoBehaviour
 
     private void LateUpdate() 
     {
-        /*
-        Vector2 deltaInput = inputManager.GetMouseDelta();
+        if(cam_state == CamStates.FIRST_PERSON)
+        {
+            Vector2 deltaInput = inputManager.GetMouseDelta();
 
-        float mouse_x = deltaInput.x * FP_verticalSpeed * Time.deltaTime;
-        float mouse_y = deltaInput.y * FP_horizontalSpeed * Time.deltaTime;
+            float mouse_x = deltaInput.x * FP_verticalSpeed * Time.deltaTime;
+            float mouse_y = deltaInput.y * FP_horizontalSpeed * Time.deltaTime;
 
-        xRotation -= mouse_y;
-        xRotation = Mathf.Clamp(xRotation, -FP_clampAngle, FP_clampAngle);
+            xRotation -= mouse_y;
+            xRotation = Mathf.Clamp(xRotation, -FP_clampAngle, FP_clampAngle);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        player.transform.Rotate(Vector3.up * mouse_x);
-        */
+            transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+            player.transform.Rotate(Vector3.up * mouse_x);
+        }
     }
 }
