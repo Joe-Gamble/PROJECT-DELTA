@@ -46,6 +46,8 @@ public class ItemUseTest : MonoBehaviour
                 //GET GENERIC TYPE FROM NAME
                 InteractableItem my_gun = Factory.Manager.GetItem<SMG>("SMG");
 
+                equipmentHandler.EquipItem(my_gun);
+
                 if(my_gun is IReloadable)
                 {
                     //reload the gun
