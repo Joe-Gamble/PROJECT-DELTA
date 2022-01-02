@@ -30,13 +30,12 @@ public enum GunTypes
 
 #endregion
 
-public class ItemData : ScriptableObject 
+public class ItemData : ScriptableObject
 {
     [Header("Dev Details")]
     public int id = 0;
-    //private string lookup_name = "Undefined";
 
-    [Header("Dev Details")]
+    [Header("Game Details")]
     public string item_name = "";
     public string desc = "";
 
@@ -48,9 +47,9 @@ public class ItemData : ScriptableObject
     public GameObject prefab;
 }
 
-public abstract class WeaponData : ItemData 
+public abstract class WeaponData : ItemData
 {
     [Header("Weapon Values")]
     public int damage;
-    
+
 }

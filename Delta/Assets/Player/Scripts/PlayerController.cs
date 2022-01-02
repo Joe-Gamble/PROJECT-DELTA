@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     private InputManager inputManager;
     private PlayerCamManager pcm;
     private Animator animator;
-    private bool isMoving = false;
 
     private void OnEnable() {
         controller = GetComponent<CharacterController>();
@@ -96,10 +95,6 @@ public class PlayerController : MonoBehaviour
                 controller.Move(moveDir.normalized * speed * Time.deltaTime);
 
                 movement.y = Mathf.Abs(movement.y);
-            }
-            else
-            {
-                isMoving = false;
             }
         }
 

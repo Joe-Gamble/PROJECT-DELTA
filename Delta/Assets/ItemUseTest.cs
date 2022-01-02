@@ -18,51 +18,35 @@ public class ItemUseTest : MonoBehaviour
     {
         inputManager = InputManager.Instance;
 
-        SMG weap = Factory.Manager.GetItem<SMG>("SMG");
-        Factory.Spawner.Spawn(spawnPos, weap, false, true);
+        SMG weap = Factory.GetItem<SMG>("SMG");
+        Spawner.Spawn(spawnPos, weap, false, true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(inputManager != null)
+        if (inputManager != null)
         {
-            if(inputManager.Interact())
+            if (inputManager.Interact())
             {
-                
-                //GET SPECIFIC TYPE FROM NAME
-                SMG smg = Factory.Manager.GetItem<SMG>("SMG");
-
-                //FIND ALL TYPES OF A TYPE
-                List<Gun> AllGuns = Factory.Manager.GetAllItemsOfType<Gun>();
-
-                //FIND TYPES WITH SPECIFIC BEHAVIOUS
-                Type[] types = {typeof(Gun), (typeof(Melee))}; 
-                Type[] interfaces = {typeof(IReloadable), typeof(IShootable), typeof(ISwingable)};
-
-                //USING DEFINED COLLECTIONS FOR TYPES AND BEHAVIOURS; RETURNS A LIST OF ALL TYPES FOUND
-                List<Weapon> FoundWeapons = Factory.Manager.GetSpecificCollection<Weapon>(types,interfaces);
-
                 //GET GENERIC TYPE FROM NAME
-                InteractableItem my_gun = Factory.Manager.GetItem<SMG>("SMG");
+                InteractableItem my_gun = Factory.GetItem<SMG>("SMG");
 
                 equipmentHandler.EquipItem(my_gun);
 
-                if(my_gun is IReloadable)
+                if (my_gun is IReloadable)
                 {
                     //reload the gun
                 }
-
-
             }
-            if(equipmentHandler.GetEquiped() != null)
+            if (equipmentHandler.GetEquiped() != null)
             {
-                if(inputManager.OnLeftClickDown())
+                if (inputManager.OnLeftClickDown())
                 {
                     equipmentHandler.GetEquiped().Use();
                 }
 
-                if(inputManager.OnRightClickDown())
+                if (inputManager.OnRightClickDown())
                 {
                     equipmentHandler.GetEquiped().UseSecond();
                 }
