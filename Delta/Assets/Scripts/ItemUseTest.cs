@@ -39,18 +39,6 @@ public class ItemUseTest : MonoBehaviour
                     //reload the gun
                 }
             }
-            if (equipmentHandler.GetEquiped() != null)
-            {
-                if (inputManager.OnLeftClickDown())
-                {
-                    equipmentHandler.GetEquiped().Use();
-                }
-
-                if (inputManager.OnRightClickDown())
-                {
-                    equipmentHandler.GetEquiped().UseSecond();
-                }
-            }
         }
     }
 }

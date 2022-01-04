@@ -40,7 +40,6 @@ public class ObjectLook : MonoBehaviour
             if (Vector3.Distance(transform.position, hit.transform.position) <= range)
             {
                 new_focus = hit.transform.gameObject;
-                Debug.Log("In range of: " + hit.transform.name);
             }
         }
 

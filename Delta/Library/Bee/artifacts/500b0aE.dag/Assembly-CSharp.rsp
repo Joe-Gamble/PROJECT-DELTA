@@ -338,6 +338,7 @@
 "Assets/Player/Scripts/ObjectLook.cs"
 "Assets/Player/Scripts/PlayerCamManager.cs"
 "Assets/Player/Scripts/PlayerController.cs"
+"Assets/Player/Scripts/PlayerFunctionality.cs"
 "Assets/Scripts/Controller.cs"
 "Assets/Scripts/Input/InputManager.cs"
 "Assets/Scripts/Input/PlayerControls.cs"

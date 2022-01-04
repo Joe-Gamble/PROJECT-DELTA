@@ -114,7 +114,7 @@ public class PlayerCamManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inputManager.Interact())
+        if (inputManager.Ability1())
         {
             if (cam_state == CamStates.FIRST_PERSON)
             {

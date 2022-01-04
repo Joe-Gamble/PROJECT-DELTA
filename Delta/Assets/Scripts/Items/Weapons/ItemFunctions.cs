@@ -1,8 +1,8 @@
 using UnityEngine;
 
 #region Interfaces
-     
-public interface IItemUseable 
+
+public interface IItemUseable
 {
     void Use();
     void UseSecond();
@@ -64,8 +64,8 @@ public interface ISwingable
 
 public abstract class Item
 {
-    public abstract string data_path {get;}
-    public abstract ItemData data {get;}
+    public abstract string data_path { get; }
+    public abstract ItemData data { get; }
 }
 
 public abstract class PhysicalItem : Item, IItemDropable, IItemCollectable
@@ -75,6 +75,7 @@ public abstract class PhysicalItem : Item, IItemDropable, IItemCollectable
 
     }
 
+    //Difference between manual collection and automatic by collision?
     public virtual void Collect()
     {
 

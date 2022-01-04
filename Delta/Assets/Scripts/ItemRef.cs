@@ -24,4 +24,9 @@ public class ItemRef : MonoBehaviour
             cam.gameObject.SetActive(false);
         }
     }
+
+    public PhysicalItem GetData()
+    {
+        return m_Data_ref;
+    }
 }
