@@ -24,10 +24,11 @@ public class PlayerController : MonoBehaviour
     private PlayerCamManager pcm;
     private Animator animator;
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
-        pcm = GetComponentInChildren<PlayerCamManager>();
+        pcm = PlayerCamManager.Instance;
     }
 
     private void Start()
@@ -65,16 +66,16 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = inputManager.GetPlayerMovement();
 
         isIdle = (movement == Vector2.zero);
-        
+
         Vector3 move;
         float speed = playerSpeed;
 
-        if(isRunning)
+        if (isRunning)
         {
             speed *= 2;
         }
 
-        if(pcm.GetCamState() == PlayerCamManager.CamStates.FIRST_PERSON)
+        if (pcm.GetCamState() == PlayerCamManager.CamStates.FIRST_PERSON)
         {
             //FPS
             move = transform.right * movement.x + transform.forward * movement.y;

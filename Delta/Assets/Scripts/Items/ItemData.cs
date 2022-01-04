@@ -45,6 +45,7 @@ public class ItemData : ScriptableObject
 
     [Header("Item GFX")]
     public GameObject prefab;
+    public Vector3 col_size;
 }
 
 public abstract class WeaponData : ItemData

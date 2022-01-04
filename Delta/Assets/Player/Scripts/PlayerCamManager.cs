@@ -9,6 +9,16 @@ public class PlayerCamManager : MonoBehaviour
         FIRST_PERSON, THIRD_PERSON
     };
 
+    private static PlayerCamManager _instance;
+
+    public static PlayerCamManager Instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
+
     private InputManager inputManager;
     private CamStates cam_state = CamStates.FIRST_PERSON;
 
@@ -32,7 +42,7 @@ public class PlayerCamManager : MonoBehaviour
     [SerializeField]
     private float FP_clampAngle = 80f;
 
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +52,17 @@ public class PlayerCamManager : MonoBehaviour
         player_cam.cullingMask &= ~(1 << 6);
     }
 
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
 
     void SetCamToTP()
     {
@@ -61,14 +82,14 @@ public class PlayerCamManager : MonoBehaviour
 
     public IEnumerator SetMasks()
     {
-        if(cam_state == CamStates.FIRST_PERSON)
+        if (cam_state == CamStates.FIRST_PERSON)
         {
             // Switch off layer 14, leave others as-is
             yield return new WaitForSeconds(1);
             player_cam.cullingMask &= ~(1 << 6);
-            
+
         }
-        else if(cam_state == CamStates.THIRD_PERSON)
+        else if (cam_state == CamStates.THIRD_PERSON)
         {
             // Switch on layer 14, leave others as-is
             player_cam.cullingMask |= (1 << 6);
@@ -93,20 +114,23 @@ public class PlayerCamManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(inputManager.Interact()){
-            if(cam_state == CamStates.FIRST_PERSON){
+        if (inputManager.Interact())
+        {
+            if (cam_state == CamStates.FIRST_PERSON)
+            {
                 SetCamToTP();
             }
-            else{
+            else
+            {
                 SetCamToFP();
             }
             StartCoroutine(SetMasks());
         }
     }
 
-    private void LateUpdate() 
+    private void LateUpdate()
     {
-        if(cam_state == CamStates.FIRST_PERSON)
+        if (cam_state == CamStates.FIRST_PERSON)
         {
             Vector2 deltaInput = inputManager.GetMouseDelta();
 
