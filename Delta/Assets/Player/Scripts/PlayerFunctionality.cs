@@ -8,6 +8,8 @@ public class PlayerFunctionality : MonoBehaviour
     InputManager inputManager;
     ObjectLook objectLook;
 
+    public GameObject handler_root;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +24,15 @@ public class PlayerFunctionality : MonoBehaviour
         {
             if (objectLook.hasFocus())
             {
-                PhysicalItem item = objectLook.getFocus().GetComponent<ItemRef>().GetData();
+                GameObject target = objectLook.getFocus();
+
+                PhysicalItem item = target.GetComponent<ItemRef>().GetData();
+
                 item.Collect();
 
                 if (item is IItemUseable)
                 {
+                    equipmentHandler.EquipItem(target, handler_root.transform, item as InteractableItem);
                     Debug.Log("Item Can be Used");
                 }
             }

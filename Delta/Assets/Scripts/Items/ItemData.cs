@@ -46,6 +46,7 @@ public class ItemData : ScriptableObject
     [Header("Item GFX")]
     public GameObject prefab;
     public Vector3 col_size;
+    public Vector3 equip_rot_offset;
 }
 
 public abstract class WeaponData : ItemData

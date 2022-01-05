@@ -19,26 +19,12 @@ public class ItemUseTest : MonoBehaviour
         inputManager = InputManager.Instance;
 
         SMG weap = Factory.GetItem<SMG>("SMG");
-        Spawner.Spawn(spawnPos, weap, false, false);
+        Spawner.Spawn(spawnPos, weap, false, Spawner.SpawnOptions.DYNAMIC_NO_PLAYER_COLLISION);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (inputManager != null)
-        {
-            if (inputManager.Interact())
-            {
-                //GET GENERIC TYPE FROM NAME
-                InteractableItem my_gun = Factory.GetItem<SMG>("SMG");
 
-                equipmentHandler.EquipItem(my_gun);
-
-                if (my_gun is IReloadable)
-                {
-                    //reload the gun
-                }
-            }
-        }
     }
 }

@@ -126,10 +126,7 @@ public class PlayerCamManager : MonoBehaviour
             }
             StartCoroutine(SetMasks());
         }
-    }
 
-    private void LateUpdate()
-    {
         if (cam_state == CamStates.FIRST_PERSON)
         {
             Vector2 deltaInput = inputManager.GetMouseDelta();
@@ -143,5 +140,11 @@ public class PlayerCamManager : MonoBehaviour
             transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
             player.transform.Rotate(Vector3.up * mouse_x);
         }
+
+    }
+
+    private void LateUpdate()
+    {
+
     }
 }

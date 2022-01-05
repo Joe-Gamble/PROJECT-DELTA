@@ -7,8 +7,6 @@ public class ItemRef : MonoBehaviour
     public void Init(GameObject go, PhysicalItem item)
     {
         m_Data_ref = item;
-        go.transform.Rotate(0, -90, 0, Space.Self);
-
         go.layer = 7;
 
         Camera cam = go.GetComponentInChildren<Camera>();
@@ -17,6 +15,7 @@ public class ItemRef : MonoBehaviour
         {
             BoxCollider bc = go.AddComponent<BoxCollider>();
             bc.size = item.data.col_size;
+            bc.isTrigger = true;
         }
 
         if (cam != null)
