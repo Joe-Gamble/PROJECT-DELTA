@@ -8,6 +8,7 @@ public class ItemRef : MonoBehaviour
     {
         m_Data_ref = item;
         go.layer = 7;
+        m_Data_ref.runtime_ref = go;
 
         Camera cam = go.GetComponentInChildren<Camera>();
 

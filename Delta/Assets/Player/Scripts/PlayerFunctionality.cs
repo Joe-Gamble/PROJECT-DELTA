@@ -25,14 +25,13 @@ public class PlayerFunctionality : MonoBehaviour
             if (objectLook.hasFocus())
             {
                 GameObject target = objectLook.getFocus();
-
                 PhysicalItem item = target.GetComponent<ItemRef>().GetData();
 
                 item.Collect();
 
                 if (item is IItemUseable)
                 {
-                    equipmentHandler.EquipItem(target, handler_root.transform, item as InteractableItem);
+                    equipmentHandler.EquipItem(handler_root.transform, item as InteractableItem);
                     Debug.Log("Item Can be Used");
                 }
             }
@@ -40,14 +39,14 @@ public class PlayerFunctionality : MonoBehaviour
 
         if (equipmentHandler.GetEquiped() != null)
         {
-            if (inputManager.OnLeftClickDown())
+            if (inputManager.OnLeftClick())
             {
                 equipmentHandler.GetEquiped().Use();
             }
 
-            if (inputManager.OnRightClickDown())
+            if (inputManager.OnLeftClickUp())
             {
-                equipmentHandler.GetEquiped().UseSecond();
+                equipmentHandler.GetEquiped().PrimaryStop();
             }
         }
     }

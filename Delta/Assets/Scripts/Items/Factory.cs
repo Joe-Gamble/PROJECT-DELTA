@@ -75,8 +75,8 @@ public static class Spawner
 
             //This functionality also needs to support multiple players - colliders need to be disabled for each player
             GameObject obj = GameObject.Instantiate(item.data.prefab, pos.position, pos.rotation);
-
             obj.name = item.data.name;
+
             ItemRef ir = obj.AddComponent<ItemRef>();
             ir.Init(obj, item);
             return obj;
@@ -120,8 +120,9 @@ public static class Spawner
                 {
                     mc.enabled = false;
                 }
-            }//BRUH!!!!
+            }
 
+            //do we really need dynamic collisions?
             if (behaviours == SpawnOptions.DYNAMIC_NO_PLAYER_COLLISION || behaviours == SpawnOptions.STATIC_NO_PLAYER_COLLISION)
             {
                 GameObject player = GameObject.FindGameObjectWithTag("Player");

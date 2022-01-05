@@ -11,17 +11,18 @@ public class SMG : Automatic, IReloadable, IUpgradeable, IWeaponAimable
     public override string data_path => "Data/TEST SMG";
     public override GunData gun_data => Resources.Load<GunData>(data_path) as GunData;
 
-    private void Start() {
-        
-    }
+    //ammo_in_clip = data.clip_size;
+    //ammo_in_reserves = data.reserve_mags * ammo_in_clip;
 
-    public override void UseSecond()
+
+    public override void OnUseSecond()
     {
         Aim();
     }
 
     public void Aim()
     {
+        //Cinemachine Blend to ADS Cam
         //Aim Code here
         Debug.Log("Aiming");
     }
@@ -36,7 +37,8 @@ public class SMG : Automatic, IReloadable, IUpgradeable, IWeaponAimable
         //Upgrade functionality - later addition?
     }
 
-    private void Update() {
+    private void Update()
+    {
         //this gets hit
     }
 }

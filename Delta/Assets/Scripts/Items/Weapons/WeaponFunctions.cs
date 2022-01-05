@@ -6,49 +6,25 @@ namespace Weapons
     {
         public abstract class Automatic : Gun
         {
-            private bool isFiring = false;
+            public override GunTypes m_GunType => GunTypes.AUTOMATIC;
 
-            private void Start() {
-            
-                m_GunType = GunTypes.AUTOMATIC;
-            }
-
-            public override void Shoot()
-            {
-                float current_time = Time.time;
-                while(isFiring)
-                {
-                    if(Time.time - current_time >= 60000.0f / gun_data.fire_rate)
-                    {
-                        current_time = Time.time;
-                        Debug.Log("Fire");
-                    }
-                    
-                }
-            }
         }
 
         public abstract class SingleShot : Gun
         {
-            private void Start() {
-            
-                m_GunType = GunTypes.SINGLESHOT;
-            }
+            public override GunTypes m_GunType => GunTypes.SINGLESHOT;
         }
 
         public abstract class Hybrid : Gun
         {
-            private void Start() {
-                
-                m_GunType = GunTypes.HYBRID;
-            }
+            public override GunTypes m_GunType => GunTypes.HYBRID;
         }
     }
 }
 
 public abstract class Weapon : InteractableItem, IWeaponInspectable
 {
-    public abstract WeaponTypes WeaponType {get;}
+    public abstract WeaponTypes WeaponType { get; }
 
     public void Inspect()
     {
@@ -61,32 +37,50 @@ public abstract class Gun : Weapon, IShootable
     public override WeaponTypes WeaponType => WeaponTypes.GUN;
     public override ItemData data => gun_data as ItemData;
 
-    public abstract GunData gun_data {get; }
-
-    protected GunTypes m_GunType {get; set;}
+    public abstract GunData gun_data { get; }
+    public virtual GunTypes m_GunType { get; set; }
 
     protected int ammo_in_clip;
     protected int ammo_in_reserves;
 
-    private void Start() {
-        //ammo_in_clip = data.clip_size;
-        //ammo_in_reserves = data.reserve_mags * ammo_in_clip;
-    }
+    private float current_time = 0;
+    private float time_since_last;
+
 
     public override void Use()
     {
         Shoot();
     }
 
-    public virtual void Shoot(){ throw new System.NotImplementedException(); }
+    public void Shoot()
+    {
+        time_since_last = Time.time - current_time;
+        if (time_since_last >= 1f / (gun_data.fire_rate / 60.0f))
+        {
+            Debug.Log("Fire");
+            time_since_last = 0;
+            current_time = Time.time;
+        }
+    }
+
+    public override void PrimaryStop()
+    {
+
+    }
+
+    public override void SecondaryStop()
+    {
+        throw new System.NotImplementedException();
+    }
 }
 
 public abstract class Melee : Weapon, ISwingable
 {
     public override WeaponTypes WeaponType => WeaponTypes.MELEE;
 
-    private void Start() {
-       
+    private void Start()
+    {
+
     }
 
     public override void Use()

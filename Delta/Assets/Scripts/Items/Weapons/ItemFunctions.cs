@@ -5,7 +5,9 @@ using UnityEngine;
 public interface IItemUseable
 {
     void Use();
-    void UseSecond();
+    void OnUseSecond();
+    void PrimaryStop();
+    void SecondaryStop();
 }
 
 public interface IItemCancelable
@@ -70,6 +72,8 @@ public abstract class Item
 
 public abstract class PhysicalItem : Item, IItemDropable, IItemCollectable
 {
+    public GameObject runtime_ref = null;
+
     public virtual void Drop()
     {
 
@@ -86,7 +90,11 @@ public abstract class InteractableItem : PhysicalItem, IItemUseable
 {
     public abstract void Use();
 
-    public abstract void UseSecond();
+    public abstract void OnUseSecond();
+
+    public abstract void PrimaryStop();
+
+    public abstract void SecondaryStop();
 }
 
 

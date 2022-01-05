@@ -2,20 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Can we have this as a Static/Singleton? 
 public class EquipmentHandler
 {
     //Does this need to default to hands?
 
+    //Interactable list for multiple weapons & Single GameObject to store current?
     InteractableItem equiped_item = null;
+
+
 
     public InteractableItem GetEquiped()
     {
         return equiped_item;
     }
 
-    public void EquipItem(GameObject new_item, Transform root, InteractableItem item_data)
+    public void EquipItem(Transform root, InteractableItem item_data)
     {
-        //Will eventually come from inventory but for now will appear from void
+        if (equiped_item != null)
+        {
+            UnequipItem();
+        }
+
+        GameObject new_item = item_data.runtime_ref;
+
         equiped_item = item_data as InteractableItem;
 
         new_item.transform.parent = root.transform;
@@ -36,6 +47,18 @@ public class EquipmentHandler
 
     public void UnequipItem()
     {
+        //Drop here
+        SetLayerRecursively(equiped_item.runtime_ref, 7);
+
+        //This might not be ok - how can we be sure that the item wasn't kinetamtic to begin with? 
+        //How do we deal with static items that we collect?
+
+        if (equiped_item.runtime_ref.TryGetComponent<Rigidbody>(out Rigidbody rb))
+        {
+            rb.isKinematic = false;
+        }
+
+        equiped_item.Drop();
         equiped_item = null;
     }
 
