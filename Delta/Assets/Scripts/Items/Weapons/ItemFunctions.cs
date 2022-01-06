@@ -17,7 +17,7 @@ public interface IItemCancelable
 
 public interface IItemCollectable
 {
-    void Collect();
+    void Collect(GameObject player);
 }
 
 public interface IItemDropable
@@ -70,23 +70,26 @@ public abstract class Item
     public abstract ItemData data { get; }
 }
 
-public abstract class PhysicalItem : Item, IItemDropable, IItemCollectable
+public abstract class PhysicalItem : Item
 {
     public GameObject runtime_ref = null;
+}
 
+public abstract class CollectableItem : PhysicalItem, IItemDropable, IItemCollectable
+{
     public virtual void Drop()
     {
 
     }
 
     //Difference between manual collection and automatic by collision?
-    public virtual void Collect()
+    public virtual void Collect(GameObject player)
     {
 
     }
 }
 
-public abstract class InteractableItem : PhysicalItem, IItemUseable
+public abstract class InteractableItem : CollectableItem, IItemUseable
 {
     public abstract void Use();
 

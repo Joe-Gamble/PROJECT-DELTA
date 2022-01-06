@@ -29,12 +29,28 @@ public static class TypeGetter
 
 public static class Spawner
 {
-    public enum SpawnOptions
+    internal static List<ItemDetails> old_items = new List<ItemDetails>();
+
+    //Store "Deleted Objects" in a disabled list of structs, containing  a reference to the itemdata, spawnoptions
+    public enum SpawnStates
     {
         STATIC_NO_PLAYER_COLLISION,
         STATIC_PLAYER_COLLISION,
         DYNAMIC_NO_PLAYER_COLLISION,
         DYNAMIC_PLAYER_COLLISION
+    }
+
+    public struct ItemDetails
+    {
+        public ItemDetails(GameObject go, SpawnStates state, PhysicalItem data)
+        {
+            obj_ref = go;
+            spawn_state = state;
+            item = data;
+        }
+        public GameObject obj_ref;
+        public SpawnStates spawn_state;
+        public PhysicalItem item;
     }
     //Thinking about Spawn functionality, maybe I need methods later on to support bounds? For mob spawners, loot drops, etc
 
@@ -44,7 +60,7 @@ public static class Spawner
     /// <param name="pos"> The position where it will be spawn </param>
     /// <param name="item"> The ItemData of the object being spawned </param>
     /// <returns> The Gameobject spawned </returns>
-    public static GameObject Spawn(Transform pos, PhysicalItem item)
+    public static GameObject Spawn(Transform pos, CollectableItem item)
     {
         if (item.data.type != ItemTypes.UNDEFINED)
         {
@@ -52,7 +68,10 @@ public static class Spawner
 
             obj.name = item.data.name;
             ItemRef ir = obj.AddComponent<ItemRef>();
-            ir.Init(obj, item);
+            ItemDetails details = new ItemDetails(obj, SpawnStates.STATIC_PLAYER_COLLISION, item);
+            details.item.runtime_ref = obj;
+
+            ir.Init(details);
 
             return obj;
         }
@@ -66,7 +85,7 @@ public static class Spawner
     /// <param name="item"> The ItemData of the object being spawned </param>
     /// <param name="player"> The GameObject of the Player </param>
     /// <returns> The Gameobject spawned </returns>
-    public static GameObject Spawn(GameObject player, Transform pos, PhysicalItem item)
+    public static GameObject Spawn(GameObject player, Transform pos, CollectableItem item)
     {
         if (item.data.type != ItemTypes.UNDEFINED)
         {
@@ -78,7 +97,9 @@ public static class Spawner
             obj.name = item.data.name;
 
             ItemRef ir = obj.AddComponent<ItemRef>();
-            ir.Init(obj, item);
+            ItemDetails details = new ItemDetails(obj, SpawnStates.STATIC_PLAYER_COLLISION, item);
+
+            ir.Init(details);
             return obj;
         }
         throw new Exception("Item Undefined, Could not Spawn!");
@@ -91,9 +112,8 @@ public static class Spawner
     /// <param name="item"> The ItemData of the object being spawned </param>
     /// <param name="parent"> Determines if the item will be rooted to transform its spawned on </param>
     /// <param name="behaviours"> Defines the collision behaviours of the Object </param>
-
     /// <returns> The Gameobject spawned </returns>
-    public static GameObject Spawn(Transform trans, PhysicalItem item, bool parent, SpawnOptions behaviours)
+    public static GameObject Spawn(Transform trans, CollectableItem item, bool parent, SpawnStates behaviours)
     {
         if (item.data.type != ItemTypes.UNDEFINED)
         {
@@ -108,7 +128,7 @@ public static class Spawner
 
             foreach (MeshCollider mc in mcs)
             {
-                if (behaviours == SpawnOptions.DYNAMIC_PLAYER_COLLISION || behaviours == SpawnOptions.DYNAMIC_NO_PLAYER_COLLISION)
+                if (behaviours == SpawnStates.DYNAMIC_PLAYER_COLLISION || behaviours == SpawnStates.DYNAMIC_NO_PLAYER_COLLISION)
                 {
                     if (!obj.TryGetComponent<Rigidbody>(out Rigidbody rb))
                     {
@@ -123,7 +143,7 @@ public static class Spawner
             }
 
             //do we really need dynamic collisions?
-            if (behaviours == SpawnOptions.DYNAMIC_NO_PLAYER_COLLISION || behaviours == SpawnOptions.STATIC_NO_PLAYER_COLLISION)
+            if (behaviours == SpawnStates.DYNAMIC_NO_PLAYER_COLLISION || behaviours == SpawnStates.STATIC_NO_PLAYER_COLLISION)
             {
                 GameObject player = GameObject.FindGameObjectWithTag("Player");
 
@@ -145,12 +165,23 @@ public static class Spawner
             }
 
             obj.name = item.data.name;
+
             ItemRef ir = obj.AddComponent<ItemRef>();
-            ir.Init(obj, item);
+            ItemDetails details = new ItemDetails(obj, behaviours, item);
+            ir.Init(details);
 
             return obj;
         }
         throw new Exception("Item Undefined, Could not Spawn!");
+    }
+
+    public static void Unload(ItemRef itemRef)
+    {
+        ItemDetails details = new ItemDetails();
+
+        details.obj_ref = itemRef.gameObject;
+        details.item = itemRef.GetData();
+        // details.spawn_state
     }
 }
 

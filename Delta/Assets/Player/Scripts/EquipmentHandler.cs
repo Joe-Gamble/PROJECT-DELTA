@@ -11,38 +11,37 @@ public class EquipmentHandler
     //Interactable list for multiple weapons & Single GameObject to store current?
     InteractableItem equiped_item = null;
 
-
-
     public InteractableItem GetEquiped()
     {
         return equiped_item;
     }
 
-    public void EquipItem(Transform root, InteractableItem item_data)
+    public void EquipItem(Transform root, ItemRef itemRef)
     {
         if (equiped_item != null)
         {
             UnequipItem();
         }
 
-        GameObject new_item = item_data.runtime_ref;
+        Debug.Log("we are getting to here");
 
-        equiped_item = item_data as InteractableItem;
+        //Dont like this refernece
+        GameObject new_item = itemRef.GetDetails().obj_ref;
 
         new_item.transform.parent = root.transform;
         new_item.transform.position = root.transform.position;
         new_item.transform.rotation = root.transform.rotation;
 
-        new_item.layer = 7;
-
         SetLayerRecursively(new_item, 6);
 
-        new_item.transform.Rotate(item_data.data.equip_rot_offset);
+        new_item.transform.Rotate(itemRef.GetDetails().item.data.equip_rot_offset);
 
         if (new_item.TryGetComponent<Rigidbody>(out Rigidbody rb))
         {
             rb.isKinematic = true;
         }
+
+        equiped_item = itemRef.GetDetails().item as InteractableItem;
     }
 
     public void UnequipItem()

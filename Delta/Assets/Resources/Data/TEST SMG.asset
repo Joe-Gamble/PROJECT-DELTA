@@ -17,11 +17,11 @@ MonoBehaviour:
   desc: A test SMG. High Rate of Fire, low damage, perfect for close to medium engagements.
   type: 0
   item_preview: {fileID: 0}
-  prefab: {fileID: 919132149155446097, guid: d1b7f707b0c89a54581eadf1eb10a447, type: 3}
+  prefab: {fileID: 8249956629734632518, guid: 472ab242d4c54984591bfe2602b8aac7, type: 3}
   col_size: {x: 1.25, y: 0.5, z: 0.15}
   equip_rot_offset: {x: 0, y: -90, z: 0}
   damage: 10
-  fire_rate: 360
+  fire_rate: 60
   reload_speed: 2.4
   clip_size: 30
   reserve_mags: 5

@@ -2,31 +2,43 @@ using UnityEngine;
 
 public class ItemRef : MonoBehaviour
 {
-    private PhysicalItem m_Data_ref = null;
+    private Spawner.ItemDetails m_details;
 
-    public void Init(GameObject go, PhysicalItem item)
+    public void Init(Spawner.ItemDetails details)
     {
-        m_Data_ref = item;
-        go.layer = 7;
-        m_Data_ref.runtime_ref = go;
+        m_details = details;
+        // m_details = details;
+        gameObject.layer = 7;
 
-        Camera cam = go.GetComponentInChildren<Camera>();
-
-        if (item.data.col_size != Vector3.zero)
-        {
-            BoxCollider bc = go.AddComponent<BoxCollider>();
-            bc.size = item.data.col_size;
-            bc.isTrigger = true;
-        }
+        Camera cam = gameObject.GetComponentInChildren<Camera>();
 
         if (cam != null)
         {
             cam.gameObject.SetActive(false);
         }
+
+        if (details.item.data.col_size != Vector3.zero)
+        {
+            BoxCollider bc = gameObject.AddComponent<BoxCollider>();
+            bc.size = details.item.data.col_size;
+            bc.isTrigger = true;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //if other == compatible entity (e.g player, zombie, cow)
+        //only should trigger if item is flagged for passive collection (need to implement)
+        //m_details.item.Collect(other.gameObject);
+    }
+
+    public Spawner.ItemDetails GetDetails()
+    {
+        return m_details;
     }
 
     public PhysicalItem GetData()
     {
-        return m_Data_ref;
+        return m_details.item;
     }
 }

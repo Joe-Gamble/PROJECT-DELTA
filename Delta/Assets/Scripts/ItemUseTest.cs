@@ -19,7 +19,7 @@ public class ItemUseTest : MonoBehaviour
         inputManager = InputManager.Instance;
 
         SMG weap = Factory.GetItem<SMG>("SMG");
-        Spawner.Spawn(spawnPos, weap, false, Spawner.SpawnOptions.STATIC_NO_PLAYER_COLLISION);
+        Spawner.Spawn(spawnPos, weap);
     }
 
     // Update is called once per frame

@@ -25,14 +25,12 @@ public class PlayerFunctionality : MonoBehaviour
             if (objectLook.hasFocus())
             {
                 GameObject target = objectLook.getFocus();
-                PhysicalItem item = target.GetComponent<ItemRef>().GetData();
+                ItemRef item = target.GetComponent<ItemRef>();
 
-                item.Collect();
-
-                if (item is IItemUseable)
+                if (item.GetData() is IItemUseable)
                 {
-                    equipmentHandler.EquipItem(handler_root.transform, item as InteractableItem);
-                    Debug.Log("Item Can be Used");
+                    Debug.Log("Item is usable");
+                    equipmentHandler.EquipItem(handler_root.transform, item);
                 }
             }
         }
