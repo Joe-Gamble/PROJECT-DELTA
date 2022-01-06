@@ -55,3 +55,23 @@ public abstract class WeaponData : ItemData
     public int damage;
 
 }
+
+/*
+    -- Ammo --
+    Arrows, Bullets, Grenades
+    -Should Spawn a Prefab to allow for monobehaviour functionality on ammo objects
+    -Ammo objects should use a universal damage collider
+    -Standardised hitscan speeds
+    -Projectile speeds differ
+    -Damage should come from weapon data
+    -Contains gfx for 
+            -bullet trail
+            -muzzle flash / shooting gfx (if any)
+            -impact visuals
+            -Explosion visuals? (Optional)
+
+    -Needs functions for
+            -Spawning
+            -Impacts
+            -Explosion (Optional Iterface)
+*/

@@ -48,6 +48,16 @@ public class PlayerFunctionality : MonoBehaviour
             {
                 equipmentHandler.GetEquiped().PrimaryStop();
             }
+
+            if (inputManager.OnRightClick())
+            {
+                equipmentHandler.GetEquiped().UseSecond();
+            }
+
+            if (inputManager.OnRightClickUp())
+            {
+                equipmentHandler.GetEquiped().SecondaryStop();
+            }
         }
     }
 }

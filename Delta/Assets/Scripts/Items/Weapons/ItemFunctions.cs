@@ -1,11 +1,11 @@
 using UnityEngine;
 
-#region Interfaces
+#region Item Interfaces
 
 public interface IItemUseable
 {
     void Use();
-    void OnUseSecond();
+    void UseSecond();
     void PrimaryStop();
     void SecondaryStop();
 }
@@ -90,7 +90,7 @@ public abstract class InteractableItem : PhysicalItem, IItemUseable
 {
     public abstract void Use();
 
-    public abstract void OnUseSecond();
+    public abstract void UseSecond();
 
     public abstract void PrimaryStop();
 

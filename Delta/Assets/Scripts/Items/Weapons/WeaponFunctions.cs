@@ -49,23 +49,28 @@ public abstract class Gun : Weapon, IShootable
 
     public override void Use()
     {
-        Shoot();
-    }
-
-    public void Shoot()
-    {
         time_since_last = Time.time - current_time;
         if (time_since_last >= 1f / (gun_data.fire_rate / 60.0f))
         {
-            Debug.Log("Fire");
+            Shoot();
             time_since_last = 0;
             current_time = Time.time;
         }
     }
 
+    public void Shoot()
+    {
+        Debug.Log("Fire");
+    }
+
     public override void PrimaryStop()
     {
 
+    }
+
+    public override void UseSecond()
+    {
+        throw new System.NotImplementedException();
     }
 
     public override void SecondaryStop()
@@ -78,16 +83,20 @@ public abstract class Melee : Weapon, ISwingable
 {
     public override WeaponTypes WeaponType => WeaponTypes.MELEE;
 
-    private void Start()
-    {
-
-    }
-
     public override void Use()
     {
-        Swing();
+        /*  
+        time_since_last = Time.time - current_time;
+        if (time_since_last >= 1f / (gun_data.fire_rate / 60.0f))
+        {
+            Swing();
+            time_since_last = 0;
+            current_time = Time.time;
+        }
+        */
     }
 
+    //Do we need to move this functionality deeper to use the shoot code?
     public virtual void Swing() { throw new System.NotImplementedException(); }
 }
 

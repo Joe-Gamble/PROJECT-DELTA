@@ -15,7 +15,7 @@ public class SMG : Automatic, IReloadable, IUpgradeable, IWeaponAimable
     //ammo_in_reserves = data.reserve_mags * ammo_in_clip;
 
 
-    public override void OnUseSecond()
+    public override void UseSecond()
     {
         Aim();
     }
@@ -39,6 +39,6 @@ public class SMG : Automatic, IReloadable, IUpgradeable, IWeaponAimable
 
     private void Update()
     {
-        //this gets hit
+        Debug.Log("Update");
     }
 }
