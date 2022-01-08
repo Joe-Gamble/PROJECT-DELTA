@@ -22,7 +22,7 @@ namespace Weapons
     }
 }
 
-public abstract class Weapon : InteractableItem, IWeaponInspectable
+public abstract class Weapon : InteractableItem, IWeaponInspectable, IItemCollectable
 {
     public abstract WeaponTypes WeaponType { get; }
 
@@ -30,14 +30,24 @@ public abstract class Weapon : InteractableItem, IWeaponInspectable
     {
         //play animation here
     }
+
+    public virtual void Drop()
+    {
+
+    }
+
+    //Difference between manual collection and automatic by collision?
+    public virtual void Collect(GameObject player)
+    {
+
+    }
 }
 
 public abstract class Gun : Weapon, IShootable
 {
     public override WeaponTypes WeaponType => WeaponTypes.GUN;
-    public override ItemData data => gun_data as ItemData;
 
-    public abstract GunData gun_data { get; }
+    public abstract GunData data { get; }
     public virtual GunTypes m_GunType { get; set; }
 
     protected int ammo_in_clip;
@@ -46,11 +56,16 @@ public abstract class Gun : Weapon, IShootable
     private float current_time = 0;
     private float time_since_last;
 
+    public override InstanceData GetData()
+    {
+        return data;
+    }
+
 
     public override void Use()
     {
         time_since_last = Time.time - current_time;
-        if (time_since_last >= 1f / (gun_data.fire_rate / 60.0f))
+        if (time_since_last >= 1f / (data.fire_rate / 60.0f))
         {
             Shoot();
             time_since_last = 0;

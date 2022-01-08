@@ -31,27 +31,6 @@ public static class Spawner
 {
     internal static List<ItemDetails> old_items = new List<ItemDetails>();
 
-    //Store "Deleted Objects" in a disabled list of structs, containing  a reference to the itemdata, spawnoptions
-    public enum SpawnStates
-    {
-        STATIC_NO_PLAYER_COLLISION,
-        STATIC_PLAYER_COLLISION,
-        DYNAMIC_NO_PLAYER_COLLISION,
-        DYNAMIC_PLAYER_COLLISION
-    }
-
-    public struct ItemDetails
-    {
-        public ItemDetails(GameObject go, SpawnStates state, PhysicalItem data)
-        {
-            obj_ref = go;
-            spawn_state = state;
-            item = data;
-        }
-        public GameObject obj_ref;
-        public SpawnStates spawn_state;
-        public PhysicalItem item;
-    }
     //Thinking about Spawn functionality, maybe I need methods later on to support bounds? For mob spawners, loot drops, etc
 
     /// <summary>
@@ -60,13 +39,13 @@ public static class Spawner
     /// <param name="pos"> The position where it will be spawn </param>
     /// <param name="item"> The ItemData of the object being spawned </param>
     /// <returns> The Gameobject spawned </returns>
-    public static GameObject Spawn(Transform pos, CollectableItem item)
+    public static GameObject Spawn(Transform pos, PhysicalItem item)
     {
-        if (item.data.type != ItemTypes.UNDEFINED)
+        if (item.GetData().type != ItemTypes.UNDEFINED)
         {
-            GameObject obj = GameObject.Instantiate(item.data.prefab, pos.position, pos.rotation);
+            GameObject obj = GameObject.Instantiate(item.GetData().prefab, pos.position, pos.rotation);
 
-            obj.name = item.data.name;
+            obj.name = item.GetData().name;
             ItemRef ir = obj.AddComponent<ItemRef>();
             ItemDetails details = new ItemDetails(obj, SpawnStates.STATIC_PLAYER_COLLISION, item);
             details.item.runtime_ref = obj;
@@ -85,16 +64,16 @@ public static class Spawner
     /// <param name="item"> The ItemData of the object being spawned </param>
     /// <param name="player"> The GameObject of the Player </param>
     /// <returns> The Gameobject spawned </returns>
-    public static GameObject Spawn(GameObject player, Transform pos, CollectableItem item)
+    public static GameObject Spawn(GameObject player, Transform pos, PhysicalItem item)
     {
-        if (item.data.type != ItemTypes.UNDEFINED)
+        if (item.GetData().type != ItemTypes.UNDEFINED)
         {
             //Do we want to classify behaviours with an enum instead?
             //For now, I am disabling colliders manually, but depending on item type,m we may want to seperate functionality further
 
             //This functionality also needs to support multiple players - colliders need to be disabled for each player
-            GameObject obj = GameObject.Instantiate(item.data.prefab, pos.position, pos.rotation);
-            obj.name = item.data.name;
+            GameObject obj = GameObject.Instantiate(item.GetData().prefab, pos.position, pos.rotation);
+            obj.name = item.GetData().name;
 
             ItemRef ir = obj.AddComponent<ItemRef>();
             ItemDetails details = new ItemDetails(obj, SpawnStates.STATIC_PLAYER_COLLISION, item);
@@ -113,11 +92,11 @@ public static class Spawner
     /// <param name="parent"> Determines if the item will be rooted to transform its spawned on </param>
     /// <param name="behaviours"> Defines the collision behaviours of the Object </param>
     /// <returns> The Gameobject spawned </returns>
-    public static GameObject Spawn(Transform trans, CollectableItem item, bool parent, SpawnStates behaviours)
+    public static GameObject Spawn(Transform trans, PhysicalItem item, bool parent, SpawnStates behaviours)
     {
-        if (item.data.type != ItemTypes.UNDEFINED)
+        if (item.GetData().type != ItemTypes.UNDEFINED)
         {
-            GameObject obj = GameObject.Instantiate(item.data.prefab, trans.position, trans.rotation);
+            GameObject obj = GameObject.Instantiate(item.GetData().prefab, trans.position, trans.rotation);
 
             if (parent)
             {
@@ -164,7 +143,7 @@ public static class Spawner
 
             }
 
-            obj.name = item.data.name;
+            obj.name = item.GetData().name;
 
             ItemRef ir = obj.AddComponent<ItemRef>();
             ItemDetails details = new ItemDetails(obj, behaviours, item);
@@ -179,6 +158,7 @@ public static class Spawner
     {
         ItemDetails details = new ItemDetails();
 
+        //need to change this
         details.obj_ref = itemRef.gameObject;
         details.item = itemRef.GetData();
         // details.spawn_state

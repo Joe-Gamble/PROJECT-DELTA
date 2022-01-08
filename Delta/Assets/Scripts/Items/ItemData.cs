@@ -42,18 +42,20 @@ public class ItemData : ScriptableObject
     public ItemTypes type = ItemTypes.UNDEFINED;
 
     public Sprite item_preview;
+}
 
+public abstract class InstanceData : ItemData
+{
     [Header("Item GFX")]
     public GameObject prefab;
     public Vector3 col_size;
     public Vector3 equip_rot_offset;
 }
 
-public abstract class WeaponData : ItemData
+public abstract class WeaponData : InstanceData
 {
     [Header("Weapon Values")]
     public int damage;
-
 }
 
 /*

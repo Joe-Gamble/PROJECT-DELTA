@@ -34,7 +34,7 @@ public class EquipmentHandler
 
         SetLayerRecursively(new_item, 6);
 
-        new_item.transform.Rotate(itemRef.GetDetails().item.data.equip_rot_offset);
+        new_item.transform.Rotate(itemRef.GetDetails().item.GetData().equip_rot_offset);
 
         if (new_item.TryGetComponent<Rigidbody>(out Rigidbody rb))
         {
@@ -57,7 +57,7 @@ public class EquipmentHandler
             rb.isKinematic = false;
         }
 
-        equiped_item.Drop();
+        //Drop
         equiped_item = null;
     }
 
