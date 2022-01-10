@@ -15,11 +15,11 @@ public static class TypeGetter
 
         foreach (var type in factoryTypes)
         {
-            var tempEffect = Activator.CreateInstance(type) as SMG;
+            var tempEffect = Activator.CreateInstance(type) as Item;
 
-            if (tempEffect.data != null)
+            if (tempEffect.Data() != null)
             {
-                typesByName.Add(tempEffect.data.item_name, type);
+                typesByName.Add(tempEffect.Data().item_name, type);
             }
         }
 
@@ -41,11 +41,11 @@ public static class Spawner
     /// <returns> The Gameobject spawned </returns>
     public static GameObject Spawn(Transform pos, PhysicalItem item)
     {
-        if (item.GetData().type != ItemTypes.UNDEFINED)
+        if (item.Data().type != ItemTypes.UNDEFINED)
         {
-            GameObject obj = GameObject.Instantiate(item.GetData().prefab, pos.position, pos.rotation);
+            GameObject obj = GameObject.Instantiate(item.Data().prefab, pos.position, pos.rotation);
 
-            obj.name = item.GetData().name;
+            obj.name = item.Data().name;
             ItemRef ir = obj.AddComponent<ItemRef>();
             ItemDetails details = new ItemDetails(obj, SpawnStates.STATIC_PLAYER_COLLISION, item);
             details.item.runtime_ref = obj;
@@ -66,14 +66,14 @@ public static class Spawner
     /// <returns> The Gameobject spawned </returns>
     public static GameObject Spawn(GameObject player, Transform pos, PhysicalItem item)
     {
-        if (item.GetData().type != ItemTypes.UNDEFINED)
+        if (item.Data().type != ItemTypes.UNDEFINED)
         {
             //Do we want to classify behaviours with an enum instead?
             //For now, I am disabling colliders manually, but depending on item type,m we may want to seperate functionality further
 
             //This functionality also needs to support multiple players - colliders need to be disabled for each player
-            GameObject obj = GameObject.Instantiate(item.GetData().prefab, pos.position, pos.rotation);
-            obj.name = item.GetData().name;
+            GameObject obj = GameObject.Instantiate(item.Data().prefab, pos.position, pos.rotation);
+            obj.name = item.Data().name;
 
             ItemRef ir = obj.AddComponent<ItemRef>();
             ItemDetails details = new ItemDetails(obj, SpawnStates.STATIC_PLAYER_COLLISION, item);
@@ -94,9 +94,9 @@ public static class Spawner
     /// <returns> The Gameobject spawned </returns>
     public static GameObject Spawn(Transform trans, PhysicalItem item, bool parent, SpawnStates behaviours)
     {
-        if (item.GetData().type != ItemTypes.UNDEFINED)
+        if (item.Data().type != ItemTypes.UNDEFINED)
         {
-            GameObject obj = GameObject.Instantiate(item.GetData().prefab, trans.position, trans.rotation);
+            GameObject obj = GameObject.Instantiate(item.Data().prefab, trans.position, trans.rotation);
 
             if (parent)
             {
@@ -143,7 +143,7 @@ public static class Spawner
 
             }
 
-            obj.name = item.GetData().name;
+            obj.name = item.Data().name;
 
             ItemRef ir = obj.AddComponent<ItemRef>();
             ItemDetails details = new ItemDetails(obj, behaviours, item);

@@ -45,9 +45,16 @@ public abstract class Weapon : InteractableItem, IWeaponInspectable, IItemCollec
 
 public abstract class Gun : Weapon, IShootable
 {
+    //DATA CODE
+    public new abstract Data<GunData> data { get; }
+
+    protected override ItemData GetData() { return data.GetData(); }
+    public new GunData Data() { return this.GetData() as GunData; }
+
+
     public override WeaponTypes WeaponType => WeaponTypes.GUN;
 
-    public abstract GunData data { get; }
+    //public abstract GunData data { get; }
     public virtual GunTypes m_GunType { get; set; }
 
     protected int ammo_in_clip;
@@ -56,16 +63,10 @@ public abstract class Gun : Weapon, IShootable
     private float current_time = 0;
     private float time_since_last;
 
-    public override InstanceData GetData()
-    {
-        return data;
-    }
-
-
     public override void Use()
     {
         time_since_last = Time.time - current_time;
-        if (time_since_last >= 1f / (data.fire_rate / 60.0f))
+        if (time_since_last >= 1f / (Data().fire_rate / 60.0f))
         {
             Shoot();
             time_since_last = 0;

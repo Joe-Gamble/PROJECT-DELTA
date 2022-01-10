@@ -9,7 +9,12 @@ using Weapons.Guns;
 public class SMG : Automatic, IReloadable, IUpgradeable, IWeaponAimable
 {
     public override string data_path => "Data/TEST SMG";
-    public override GunData data => Resources.Load<GunData>(data_path) as GunData;
+    public override Data<GunData> data => new Data<GunData>(Resources.Load<GunData>(data_path));
+
+    protected override ItemData GetData() { return data.GetData(); }
+    public new GunData Data() { return this.GetData() as GunData; }
+
+    //public override GunData data => Resources.Load<GunData>(data_path) as GunData;
 
     //ammo_in_clip = data.clip_size;
     //ammo_in_reserves = data.reserve_mags * ammo_in_clip;

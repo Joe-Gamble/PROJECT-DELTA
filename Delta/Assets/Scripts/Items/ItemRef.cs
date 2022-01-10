@@ -17,10 +17,10 @@ public class ItemRef : MonoBehaviour
             cam.gameObject.SetActive(false);
         }
 
-        if (details.item.GetData().col_size != Vector3.zero)
+        if (details.item.Data().col_size != Vector3.zero)
         {
             BoxCollider bc = gameObject.AddComponent<BoxCollider>();
-            bc.size = details.item.GetData().col_size;
+            bc.size = details.item.Data().col_size;
             bc.isTrigger = true;
         }
     }
