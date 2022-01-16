@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//throw new System.NotImplementedException();
-
 using Weapons.Guns;
 
 public class SMG : Automatic, IReloadable, IUpgradeable, IWeaponAimable
@@ -14,11 +12,8 @@ public class SMG : Automatic, IReloadable, IUpgradeable, IWeaponAimable
     protected override ItemData GetData() { return data.GetData(); }
     public new GunData Data() { return this.GetData() as GunData; }
 
-    //public override GunData data => Resources.Load<GunData>(data_path) as GunData;
-
     //ammo_in_clip = data.clip_size;
     //ammo_in_reserves = data.reserve_mags * ammo_in_clip;
-
 
     public override void UseSecond()
     {
